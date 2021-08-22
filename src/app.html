@@ -2,12 +2,35 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="theme-color" content="#ff6600" />
+		<link rel="manifest" href="/manifest.json" />
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		</noscript>
 
 		%svelte.head%
 	</head>
 	<body>
-		<div id="svelte">%svelte.body%</div>
+		<div id="sveltekit-blog">%svelte.body%</div>
+		<noscript> Please enable JavaScript to continue using this application. </noscript>
 	</body>
 </html>

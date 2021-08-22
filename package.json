@@ -1,6 +1,43 @@
 {
 	"name": "sveltekit-blog",
+	"description": "A sveltekit blog starter project with typescript, tailwindcss, postcss, scss, husky, and storybook setup",
 	"version": "1.0.0",
+	"author": {
+		"name": "Navneet Sharma",
+		"url": "https://navneetsharma.tech"
+	},
+	"license": "MIT",
+	"keywords": [
+		"sveltekit",
+		"typescript",
+		"svelte",
+		"SSR",
+		"svelte-starter",
+		"sveltekit-starter",
+		"svelte-boilerplate",
+		"sveltekit-boilerplate",
+		"svelte boilerplate",
+		"sveltekit boilerplate",
+		"svelte-tailwind-boilerplate",
+		"svelte tailwind boilerplate",
+		"sveltekit tailwind boilerplate",
+		"svelte-ssr-starter",
+		"sveltekit-ssr-starter",
+		"svelte-pwa-starter",
+		"sveltekit-pwa-starter",
+		"starter-template",
+		"svelte ssr starter",
+		"sveltekit ssr starter",
+		"svelte pwa starter",
+		"sveltekit pwa starter",
+		"starter template",
+		"template",
+		"sveltekit-blog"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/navneetsharmaui/sveltekit-blog.git"
+	},
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
