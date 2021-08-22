@@ -11,6 +11,8 @@
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
 		/**
 			To have warnings/errors of the Svelte compiler at the correct position,
 			enable source maps by default.
@@ -22,10 +24,48 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
+		"types": ["node", "yargs", "cookie", "node-fetch"],
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
+			"$app/*": [".svelte-kit/dev/runtime/app/*", ".svelte-kit/build/runtime/app/*"],
+			"$lib/*": ["src/lib/*"],
+			"$core": ["src/lib/core/index.ts"],
+			"$core/*": ["src/lib/core/*"],
+			"$utils": ["src/lib/utils/index.ts"],
+			"$utils/*": ["src/lib/utils/*"],
+			"$shared": ["src/lib/shared/index.ts"],
+			"$shared/*": ["src/lib/shared/*"],
+			"$components": ["src/lib/shared/components/index.ts"],
+			"$components/*": ["src/lib/shared/ui/*"],
+			"$ui": ["src/lib/shared/ui/index.ts"],
+			"$ui/*": ["src/lib/shared/ui/*"],
+			"$models": ["src/lib/models/index.ts"],
+			"$models/*": ["src/lib/models/*"],
+			"$data": ["src/lib/data/index.ts"],
+			"$data/*": ["src/lib/data/*"],
+			"$environment/*": ["src/environments/*"]
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+	"include": [
+		"src/**/*.d.ts",
+		"src/*.d.ts",
+		"src/*.d.ts",
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/**/**/*.ts",
+		"src/**/*.svelte",
+		"scripts/*.ts",
+		"./jest-setup.ts",
+		"scripts/js/sitemap.ts",
+		"scripts/js/environment.setup.ts"
+	],
+	"exclude": [
+		"node_modules/*",
+		"dist/*",
+		".svelte/*",
+		".svelte-kit/*",
+		"build/*",
+		"coverage/*",
+		".vercel_build_output/*",
+		"functions/*"
+	]
 }
