@@ -2,10 +2,7 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
 
-/// <reference types="@storybook/addon-svelte-csf" />
-
 // Modules
-declare module '@storybook/addon-svelte-csf';
 
 /**
  * With these declarations images can be imported in the components.
@@ -71,4 +68,9 @@ interface ImportMetaEnv {
 	VITE_CHUCK_NORRIS_API_URL: string;
 	VITE_CHUCK_NORRIS_API_LANG: string;
 	VITE_GITHUB_API_URL: string;
+	VITE_SPOTIFY_CLIENT_ID: string;
+	VITE_SPOTIFY_CLIENT_SECRET: string;
+	VITE_SPOTIFY_REFRESH_TOKEN: string;
+	VITE_SESSION_KEY: string;
+	VITE_TWITTER_API_KEY: string;
 }
