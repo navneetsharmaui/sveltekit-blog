@@ -1,4 +1,8 @@
+/* Write your global styles here, in PostCSS syntax */
+
 @import '@fontsource/fira-mono';
+
+@tailwind base;
 
 :root {
 	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
@@ -105,3 +109,7 @@ button:focus:not(:focus-visible) {
 		font-size: 2.4rem;
 	}
 }
+
+@tailwind components;
+
+@tailwind utilities
