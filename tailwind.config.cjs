@@ -6,6 +6,12 @@ const config = {
 	theme: {
 		extend: {},
 	},
+	variants: {
+		extend: {
+			listStyleType: ['hover', 'focus'],
+			listStylePosition: ['hover', 'focus'],
+		},
+	},
 	plugins: [],
 };
 
