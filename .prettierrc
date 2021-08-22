@@ -1,0 +1,18 @@
+{
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "all",
+	"printWidth": 120,
+	"tabWidth": 4,
+	"arrowParens": "always",
+	"bracketSpacing": true,
+	"svelteStrictMode": true,
+	"svelteSortOrder": "options-styles-scripts-markup",
+	"svelteAllowShorthand": false,
+	"svelteBracketNewLine": true,
+	"svelteIndentScriptAndStyle": true,
+	"htmlWhitespaceSensitivity": "strict",
+	"semi": true,
+	"jsxBracketSameLine": false,
+	"jsxSingleQuote": true
+}
