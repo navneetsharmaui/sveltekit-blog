@@ -1,12 +1,10 @@
+import { EnvironmentName } from '$lib/models/enums/environment-name.enum';
+import { EnvironmentType } from '$lib/models/enums/environment-type.enum';
 import {
-	EnvironmentName,
-	EnvironmentType,
 	SVELTEKIT_DATA_ENPOINTS_DEV,
 	SVELTEKIT_SEARCH_ENPOINTS_DEV,
-} from '$lib/models';
-import type {
-	SVELTEKIT_STARTER_ENPOINT_CONFIG,
-} from '$lib/models/types/sveltekit-endpoits.type';
+} from '$lib/models/enums/sveltekit-endpoint.dev.enum';
+import type { SVELTEKIT_STARTER_ENPOINT_CONFIG } from '$lib/models/types/sveltekit-endpoits.type';
 import type { ISveltekitStarterEnvironmentConfig } from '$models/interfaces/isveltekit-strater-environment.interface';
 
 export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_ENPOINT_CONFIG> = {

@@ -57,9 +57,6 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
-			defaults: {
-				style: 'scss',
-			},
 			postcss: true,
 			scss: {
 				prependData: `@import 'src/styles/variables/index.scss';`,
