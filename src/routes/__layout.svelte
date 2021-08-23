@@ -5,7 +5,7 @@
 	// End: External Imports
 
 	// Core services
-	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment';
+	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment/environment.facade';
 
 	// Components
 	import Header from '$ui/components/header/Header.svelte';

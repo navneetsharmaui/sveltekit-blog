@@ -15,7 +15,7 @@ import type { ISveltekitStarterEnvironmentConfig } from '$models/interfaces/isve
  * @alpha
  * @public
  */
-export class SveltekitStarterEnvironmentFacade<
+class SveltekitStarterEnvironmentFacade<
 	T extends ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_ENPOINT_CONFIG> = ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_ENPOINT_CONFIG>,
 > {
 	constructor(private readonly coreConfig: ISveltekitStarterCoreConfig<T>) {}

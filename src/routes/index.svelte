@@ -12,11 +12,11 @@
 	// Start: Local Imports
 
 	// Core services
-	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment';
-	import { jsonHttpUtil } from '$core/services/https';
+	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment/environment.facade';
+	import { jsonHttpUtil } from '$core/services/https/http-json';
 
 	// Utils
-	import { Logger, LoggerUtils } from '$lib/utils/logger';
+	import { Logger, LoggerUtils } from '$lib/utils/logger/logger';
 
 	// Components
 	import HeadTags from '$components/head-tags/HeadTags.svelte';

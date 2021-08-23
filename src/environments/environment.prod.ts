@@ -2,9 +2,9 @@ import {
 	EnvironmentName,
 	EnvironmentType,
 	SVELTEKIT_DATA_ENPOINTS_PROD,
-	SVELTEKIT_STARTER_ENPOINT_CONFIG,
 	SVELTEKIT_SEARCH_ENPOINTS_PROD,
 } from '$lib/models';
+import type { SVELTEKIT_STARTER_ENPOINT_CONFIG } from '$lib/models/types/sveltekit-endpoits.type';
 import type { ISveltekitStarterEnvironmentConfig } from '$models/interfaces/isveltekit-strater-environment.interface';
 
 export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_ENPOINT_CONFIG> = {
