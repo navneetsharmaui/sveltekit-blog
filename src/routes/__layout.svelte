@@ -35,6 +35,10 @@
 			path: '/users',
 			label: 'Users',
 		},
+		{
+			path: '/blog',
+			label: 'Blog',
+		},
 	];
 
 	const applicationHeaderTitle = `${sveltekitStarterEnvironmentFacade.environmentName} | Sveltekit`;
