@@ -19,6 +19,10 @@
 			path: '/users',
 			label: 'Users',
 		},
+		{
+			path: '/blog',
+			label: 'Blog',
+		},
 	];
 </script>
 

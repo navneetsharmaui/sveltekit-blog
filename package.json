@@ -106,7 +106,9 @@
 		"eslint:fix": "eslint ./src/**/*.{js,svelte,ts} --ignore-path .gitignore . --fix",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts"
+		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",
@@ -114,7 +116,17 @@
 		"cookie": "^0.4.1"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.15.0",
 		"@squoosh/lib": "^0.4.0",
+		"@storybook/addon-actions": "^6.3.7",
+		"@storybook/addon-cssresources": "^6.2.9",
+		"@storybook/addon-essentials": "^6.3.7",
+		"@storybook/addon-info": "^5.3.21",
+		"@storybook/addon-links": "^6.3.7",
+		"@storybook/addon-postcss": "^2.0.0",
+		"@storybook/addon-svelte-csf": "^1.1.0",
+		"@storybook/preset-scss": "^1.0.3",
+		"@storybook/svelte": "^6.3.7",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.29",
 		"@sveltejs/adapter-node": "^1.0.0-next.43",
 		"@sveltejs/adapter-static": "^1.0.0-next.17",
@@ -128,6 +140,7 @@
 		"@typescript-eslint/eslint-plugin": "^4.19.0",
 		"@typescript-eslint/parser": "^4.19.0",
 		"autoprefixer": "^10.3.1",
+		"babel-loader": "^8.2.2",
 		"copyfiles": "^2.4.1",
 		"cross-env": "^7.0.3",
 		"cssnano": "^5.0.6",
@@ -166,7 +179,7 @@
 		"rss": "^1.2.2",
 		"sass": "^1.38.0",
 		"sass-loader": "^12.1.0",
-		"svelte": "^3.34.0",
+		"svelte": "^3.42.3",
 		"svelte-check": "^2.0.0",
 		"svelte-loader": "^3.1.2",
 		"svelte-preprocess": "^4.7.4",
