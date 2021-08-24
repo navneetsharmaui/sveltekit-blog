@@ -105,7 +105,8 @@
 		"eslint": "eslint ./src/**/*.{js,svelte,ts} --ignore-path .gitignore .",
 		"eslint:fix": "eslint ./src/**/*.{js,svelte,ts} --ignore-path .gitignore . --fix",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts"
 	},
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",
@@ -175,5 +176,8 @@
 		"typescript": "^4.0.0",
 		"yargs": "^17.1.1"
 	},
-	"type": "module"
+	"type": "module",
+	"engines": {
+		"node": ">= 14.16.1"
+	}
 }
