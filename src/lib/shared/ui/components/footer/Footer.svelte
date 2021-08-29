@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLink } from '$ui/components/external-link';
+	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 </script>
 
 <footer class="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
