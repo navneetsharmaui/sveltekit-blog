@@ -9,6 +9,8 @@
 
 	// Components
 	import Header from '$ui/components/header/Header.svelte';
+	import Footer from '$ui/components/footer/Footer.svelte';
+	import NowPlaying from '$shared/components/now-playing/NowPlaying.svelte';
 
 	// Models
 	import type { IHeaderNavLink } from '$models/interfaces/iheader-nav-link.interface';
@@ -53,5 +55,10 @@
 		<!-- Start: Defaull layout slot -->
 		<slot />
 		<!-- End: Defaull layout slot -->
+		<!-- Start: Footer -->
+		<Footer>
+			<NowPlaying />
+		</Footer>
+		<!-- End: Footer -->
 	</main>
 </div>
