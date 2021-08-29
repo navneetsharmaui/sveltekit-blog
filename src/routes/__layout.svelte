@@ -41,11 +41,22 @@
 
 	const applicationHeaderTitle = `${sveltekitStarterEnvironmentFacade.environmentName} | Sveltekit`;
 	// End: Local component properties
+
+	let dark = true;
+
+	// Start: Local component methods
+
+	function toggleThemeMode(event: CustomEvent<{dark: boolean}>): void {
+		const htmlTag = document.getElementsByTagName('html').item(0);
+		htmlTag.className = event.detail.dark ? 'dark' : 'light';
+	}
+
+	// End: Local component methods
 </script>
 
 <div class="bg-white dark:bg-black">
 	<!-- Start: Header Navigation -->
-	<Header navLinks="{navLinks}" />
+	<Header on:toggleTheme={toggleThemeMode} navLinks="{navLinks}"  />
 	<!-- End: Header Navigation -->
 	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
 		<!-- Start: Defaull layout slot -->
