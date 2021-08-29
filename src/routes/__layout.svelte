@@ -45,10 +45,13 @@
 	// End: Local component properties
 </script>
 
-<!-- Start: Header Navigation -->
-<Header title="{applicationHeaderTitle}" navLinks="{navLinks}" />
-<!-- End: Header Navigation -->
-
-<!-- Start: Defaull layout slot -->
-<slot />
-<!-- End: Defaull layout slot -->
+<div class="bg-white dark:bg-black">
+	<!-- Start: Header Navigation -->
+	<Header navLinks="{navLinks}" />
+	<!-- End: Header Navigation -->
+	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
+		<!-- Start: Defaull layout slot -->
+		<slot />
+		<!-- End: Defaull layout slot -->
+	</main>
+</div>
