@@ -30,12 +30,8 @@
 			label: 'About',
 		},
 		{
-			path: '/settings',
-			label: 'Settings',
-		},
-		{
-			path: '/users',
-			label: 'Users',
+			path: '/projects',
+			label: 'Projects',
 		},
 		{
 			path: '/blog',
