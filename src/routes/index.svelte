@@ -20,9 +20,13 @@
 
 	// Components
 	import HeadTags from '$components/head-tags/HeadTags.svelte';
+	import BlogPost from '$components/blog-post/BlogPost.svelte';
+	import ProjectCard from '$components/project-card/ProjectCard.svelte';
 
 	// Models
 	import type { IMetaTagProperties } from '$models/interfaces/imeta-tag-properties.interface';
+	import type { IBlogPostSummary } from '$models/interfaces/iblog-post-summary.interface';
+	import type { IProjectCard } from '$models/interfaces/iproject-card.interface';
 	// End: Local Imports
 
 	// Start: Local component properties
@@ -38,10 +42,40 @@
 
 	const logger: Logger = LoggerUtils.getInstance('Index');
 
-	const githubApiUrl = 'https://api.github.com/repos';
-	const githubUserName = 'SvelteStack';
-	const githubRepoName = 'svelte-query';
+	const mostPopularBlogs: IBlogPostSummary[] = [
+		{
+			title: "What's new in Svelte: August 2021",
+			summary: 'Shadow DOM, export and await - oh my!',
+			slug: 'whats-new-in-svelte-august-2021',
+		},
+		{
+			title: "What's new in Svelte: July 2021",
+			summary: 'Keeping cool with fixes, TypeScript tooling and tonnes of new features',
+			slug: 'whats-new-in-svelte-july-2021',
+		},
+		{
+			title: "What's new in Svelte: June 2021",
+			summary: 'Progress towards SvelteKit 1.0 and tighter TypeScript/Svelte integrations in language tools',
+			slug: 'whats-new-in-svelte-june-2021',
+		},
+	];
 
+	const projects: IProjectCard[] = [
+		{
+			title: 'Sveltekit Starter',
+			description:
+				'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable web application.',
+			slug: 'sveltekit-starter',
+			icon: '',
+		},
+		{
+			title: 'Sveltekit Blog',
+			description:
+				'A Sveltkit blog starter project to get up fast with sveltekit. Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable web application.',
+			slug: 'sveltekit-blog',
+			icon: '',
+		},
+	];
 	// End: Local component properties
 
 	// Start: Local component methods
@@ -59,29 +93,35 @@
 <!-- End: Header Tag -->
 
 <!-- Start: Home Page container -->
-<section class="text-gray-600 body-font">
-	<div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-		<div
-			class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
-		>
-			<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Sveltekit Starter Template </h1>
-			<p class="mb-8 leading-relaxed"
-				>The application is setup with the lastest stack of most promising tools for the Web development.</p
-			>
-			<p class="mb-8 leading-relaxed">Tailwindcss | Postcss | Modular Styles | Global Styles</p>
-			<p class="mb-8 leading-relaxed">Typescript | Husky | Storybook</p>
-			<p class="mb-8 leading-relaxed">PWA | SSR | Scalable project structure</p>
-		</div>
-		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-			<img
-				class="object-cover object-center rounded"
-				alt="hero"
-				src="https://dummyimage.com/720x600"
-				width="720"
-				height="600"
-			/>
-		</div>
-	</div>
-</section>
+<div class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+		Hey, I’m Navneet Sharma
+	</h1>
+	<h2 class="prose text-gray-600 dark:text-gray-400 mb-16">
+		I'm a developer and creator. I work as the Software Developer at XYZ. You’ve found my personal slice of the
+		internet –&nbsp;
+		{" while you're here or "}
+		<a sveltekit:prefetch href="/about">learn more about me.</a>
+	</h2>
 
+	<!-- Start: Popular Blog Section -->
+	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Popular </h3>
+
+	{#if mostPopularBlogs.length > 0}
+		{#each mostPopularBlogs as blogPost}
+			<BlogPost blog="{blogPost}" />
+		{/each}
+	{/if}
+	<!-- End: Popular Blog Section -->
+
+	<!-- Start: Top Projects -->
+	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white"> Top Projects </h3>
+
+	{#if projects.length > 0}
+		{#each projects as project}
+			<ProjectCard project="{project}" />
+		{/each}
+	{/if}
+	<!-- End: Top Projects -->
+</div>
 <!-- End: Home Page container -->

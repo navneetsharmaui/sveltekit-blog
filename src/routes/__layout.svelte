@@ -1,6 +1,8 @@
 <script lang="ts">
 	// Start: Local Imports
 
+	import '../styles/tailwind.postcss';
+
 	// Start: External Imports
 	// End: External Imports
 
@@ -46,7 +48,7 @@
 
 	// Start: Local component methods
 
-	function toggleThemeMode(event: CustomEvent<{dark: boolean}>): void {
+	const toggleThemeMode = (event: CustomEvent<{dark: boolean}>): void => {
 		const htmlTag = document.getElementsByTagName('html').item(0);
 		htmlTag.className = event.detail.dark ? 'dark' : 'light';
 	}
@@ -56,7 +58,7 @@
 
 <div class="bg-white dark:bg-black">
 	<!-- Start: Header Navigation -->
-	<Header on:toggleTheme={toggleThemeMode} navLinks="{navLinks}"  />
+	<Header on:toggleTheme={(e) => toggleThemeMode(e)} navLinks="{navLinks}"  />
 	<!-- End: Header Navigation -->
 	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
 		<!-- Start: Defaull layout slot -->

@@ -25,7 +25,7 @@
 	const dispatch = createEventDispatcher();
 
 	let dark = false;
-	function toggleTheme(): void {
+	const toggleTheme = (): void => {
 		dark = !dark;
 		dispatch('toggleTheme', {
 			dark: dark,
@@ -38,7 +38,7 @@
 >
 	<a href="#skip" class="skip-nav"> Skip to content </a>
 	<button
-		on:click="{toggleTheme}"
+		on:click="{() => toggleTheme()}"
 		aria-label="Toggle Dark Mode"
 		type="button"
 		class="w-10 h-10 p-3 bg-gray-200 rounded dark:bg-gray-800"

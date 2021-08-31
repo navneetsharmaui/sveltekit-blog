@@ -41,10 +41,11 @@
 	},
 	"scripts": {
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
-		"dev:postcss": "cross-env TAILWIND_MODE=build postcss src/styles/global.scss -o static/global.css",
-		"dev:postcss:tailwindcss": "cross-env STYLE_TYPE=TAILWIND TAILWIND_MODE=build postcss src/styles/tailwind.postcss -o static/tailwind.css",
+		"dev:postcss": "cross-env TAILWIND_MODE=build postcss src/styles/global.scss -o static/global.css -w",
+		"dev:postcss:tailwindcss": "cross-env STYLE_TYPE=TAILWIND TAILWIND_MODE=build postcss src/styles/tailwind.postcss -o static/tailwind.css -w",
 		"dev:sveltekit": "svelte-kit dev",
 		"dev": "run-p check-env dev:postcss:tailwindcss dev:postcss dev:sveltekit",
+		"dev:normal": "npm run dev:sveltekit",
 		"dev:open": "npm run dev --open",
 		"dev:host": "npm run dev --host",
 		"dev:host:open": "npm run dev --open --host",

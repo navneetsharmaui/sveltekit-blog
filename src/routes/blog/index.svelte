@@ -1,6 +1,3 @@
-<style lang="scss" type="text/scss">
-</style>
-
 <script lang="ts" context="module">
 	import { browser, dev } from '$app/env';
 
@@ -15,7 +12,6 @@
 	// since there's no dynamic data here, we can prerender
 	// it so that it gets served as a static asset in prod
 	export const prerender = true;
-
 </script>
 
 <script lang="ts">
@@ -32,10 +28,10 @@
 	 * @type {IMetaTagProperties}
 	 */
 	const metaData: Partial<IMetaTagProperties> = {
-		title: 'Blog | Sveltekit',
-		description: 'Blog page of Sveltekit starter blog project',
+		title: 'Blogs | Sveltekit Blog',
+		description: 'Blog page of Sveltekit blog starter project',
 		url: '/blog',
-		keywords: ['sveltekit', 'sveltekit starter blog', 'sveltekit starter'],
+		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter about'],
 		searchUrl: '/blog',
 	};
 	// End: Local component properties
@@ -46,14 +42,12 @@
 <!-- End: Header Tag -->
 
 <!-- Start: Blog page section -->
-<section class="text-gray-600 body-font">
-	<div class="container px-5 py-24 mx-auto">
-		<div class="flex flex-col text-center w-full mb-20">
-			<h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Blog</h1>
-			<p class="lg:w-2/3 mx-auto leading-relaxed text-base"
-				>The list of blogs available</p
-			>
-		</div>
+<div class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 dark:text-white"> Blogs </h1>
+	<div class="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
+		<p>
+			List of blogs
+		</p>
 	</div>
-</section>
+</div>
 <!-- End: Blog page section -->
