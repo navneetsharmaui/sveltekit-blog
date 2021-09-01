@@ -32,6 +32,7 @@
 			"$core/*": ["src/lib/core/*"],
 			"$utils": ["src/lib/utils/index.ts"],
 			"$utils/*": ["src/lib/utils/*"],
+			"$layouts/*": ["src/lib/layouts/*"],
 			"$shared": ["src/lib/shared/index.ts"],
 			"$shared/*": ["src/lib/shared/*"],
 			"$components": ["src/lib/shared/components/index.ts"],

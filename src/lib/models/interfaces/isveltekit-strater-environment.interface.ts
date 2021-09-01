@@ -4,6 +4,7 @@ import type { ISveltekitDBConfig } from './isveltekit-db-config.interface';
 import type { ITwitterConfig } from './itwitter-config.interface';
 import type { ISessionConfig } from './isession-config.interface';
 import type { ISpotifyConfig } from './ispotify-config.interface';
+import type { IGitHubConfig } from './igithub-config.interface';
 
 export interface ISveltekitStarterEnvironmentConfig<T = SVELTEKIT_DATA_ENPOINT_CONFIG> extends IEnvironmentConfig {
 	apiUrls: SVELTEKIT_STARTER_API_CONFIG;
@@ -11,4 +12,5 @@ export interface ISveltekitStarterEnvironmentConfig<T = SVELTEKIT_DATA_ENPOINT_C
 	spotifyConfig: Partial<ISpotifyConfig>;
 	sessionConfig: Partial<ISessionConfig>;
 	twitterConfig: Partial<ITwitterConfig>;
+	gitHubConfig: Partial<IGitHubConfig>;
 }

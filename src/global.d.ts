@@ -79,4 +79,6 @@ interface ImportMetaEnv {
 	VITE_SESSION_KEY: string;
 	VITE_TWITTER_API_KEY: string;
 	VITE_TWITTER_TWEETS_ENDPOINT: string;
+	VITE_TWITTER_SEARCH_URL: string;
+	VITE_GITHUB_BLOG_EDIT_URL: string;
 }
