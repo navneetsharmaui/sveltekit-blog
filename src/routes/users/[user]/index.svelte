@@ -91,7 +91,7 @@
 								stroke-linejoin="round"
 								stroke-width="2"
 								class="w-10 h-10"
-								viewBox="0 0 24 24"
+								view-box="0 0 24 24"
 							>
 								<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
 								<circle cx="12" cy="7" r="4"></circle>
@@ -103,7 +103,7 @@
 							>Go back
 							<svg
 								class="w-4 h-4 ml-2"
-								viewBox="0 0 24 24"
+								view-box="0 0 24 24"
 								stroke="currentColor"
 								stroke-width="2"
 								fill="none"
