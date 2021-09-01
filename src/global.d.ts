@@ -61,6 +61,8 @@ declare module '*.wbep' {
 	export = value;
 }
 
+declare module 'micro-cookie-session';
+
 // Start: Interfaces
 
 interface ImportMetaEnv {
