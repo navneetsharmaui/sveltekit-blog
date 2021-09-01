@@ -78,4 +78,5 @@ interface ImportMetaEnv {
 	VITE_SPOTIFY_TOKEN_ENDPOINT: string;
 	VITE_SESSION_KEY: string;
 	VITE_TWITTER_API_KEY: string;
+	VITE_TWITTER_TWEETS_ENDPOINT: string;
 }

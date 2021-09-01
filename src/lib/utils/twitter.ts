@@ -1,5 +1,7 @@
 import querystring from 'querystring';
 
+import { environment } from '$environment/environment';
+
 export const getTweets = async (ids) => {
 	if (ids.length === 0) {
 		return [];
@@ -13,9 +15,9 @@ export const getTweets = async (ids) => {
 		'media.fields': 'duration_ms,height,media_key,preview_image_url,type,url,width,public_metrics',
 	});
 
-	const response = await fetch(`https://api.twitter.com/2/tweets?${queryParams}`, {
+	const response = await fetch(`${environment.twitterConfig.TWITTER_TWEETS_ENDPOINT}?${queryParams}`, {
 		headers: {
-			Authorization: `Bearer ${process.env.TWITTER_API_KEY}`,
+			Authorization: `Bearer ${environment.twitterConfig.TWITTER_API_KEY}`,
 		},
 	});
 

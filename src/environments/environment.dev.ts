@@ -40,5 +40,6 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 	},
 	twitterConfig: {
 		TWITTER_API_KEY: import.meta.env.VITE_TWITTER_API_KEY,
+		TWITTER_TWEETS_ENDPOINT: import.meta.env.VITE_TWITTER_TWEETS_ENDPOINT,
 	},
 };
