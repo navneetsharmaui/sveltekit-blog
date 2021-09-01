@@ -6,15 +6,12 @@
 	// End: External Imports
 
 	// Start: Svelte Imports
-	import { onMount } from 'svelte';
 	// End: Svelte Imports
 
 	// Start: Local Imports
 
 	// Core services
 	import { environment } from '$environment/environment';
-
-	import { jsonHttpUtil } from '$core/services/https/http-json';
 
 	// Utils
 	import { Logger, LoggerUtils } from '$lib/utils/logger/logger';
@@ -80,11 +77,6 @@
 	// End: Local component properties
 
 	// Start: Local component methods
-
-	onMount(async () => {
-		const data = await jsonHttpUtil.get<any>('https://jsonplaceholder.typicode.com/photos?_limit=20');
-		logger.debug(data);
-	});
 
 	// End: Local component methods
 </script>

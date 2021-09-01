@@ -1,4 +1,4 @@
-export interface IBlogLayout {
+export interface IBlogMD {
 	title: string;
 	author: string;
 	publishedAt: string;
@@ -6,4 +6,5 @@ export interface IBlogLayout {
 	published: boolean;
 	summary: string;
 	readingTime: string;
+	html: string;
 }

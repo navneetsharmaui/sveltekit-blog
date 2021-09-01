@@ -10,7 +10,7 @@
 		{#each pros as pro, index (pro)}
 			<div class="flex font-medium items-baseline mb-2">
 				<div class="h-4 w-4 mr-2">
-					<svg class="h-4 w-4 text-green-500" view-box="0 0 24 24">
+					<svg class="h-4 w-4 text-green-500" viewBox="0 0 24 24">
 						<g
 							fill="none"
 							stroke="currentColor"

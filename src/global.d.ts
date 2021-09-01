@@ -62,6 +62,7 @@ declare module '*.wbep' {
 }
 
 declare module 'micro-cookie-session';
+declare module 'marked';
 
 // Start: Interfaces
 
