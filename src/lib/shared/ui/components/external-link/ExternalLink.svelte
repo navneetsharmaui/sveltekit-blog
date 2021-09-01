@@ -1,7 +1,16 @@
 <script lang="ts">
-	export let href = '';
+	export let href!: string;
+
+	export let cssClasses = '';
 </script>
 
-<a href="{href}" class="text-gray-500 hover:text-gray-600 transition" target="_blank" rel="noopener noreferrer">
-	<slot />
-</a>
+{#if href}
+	<a
+		href="{href}"
+		class="{cssClasses ? cssClasses : 'text-gray-500 hover:text-gray-600 transition'}"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		<slot />
+	</a>
+{/if}
