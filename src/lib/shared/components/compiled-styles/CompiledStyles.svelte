@@ -4,14 +4,14 @@
 	import type { ICompiledCSS } from '$models/interfaces/icompiled-css.interface';
 
 	// Data
-	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment/environment.facade';
+	import { environment } from '$environment/environment';
 	// End: Local Imports
 
 	// Start: Exported Properties
 	export let cssFiles: ICompiledCSS[] = [];
 	// End: Exported Properties
 
-	const isProd = sveltekitStarterEnvironmentFacade.isProd;
+	const isProd = environment.production;
 </script>
 
 <svelte:head>

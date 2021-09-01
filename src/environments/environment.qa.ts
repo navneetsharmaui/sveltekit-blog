@@ -10,7 +10,7 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 	environmentType: EnvironmentType.QA,
 	production: true,
 	isDebugMode: false,
-	lauchURL: import.meta.env.VITE_BASE_URL,
+	launchURL: import.meta.env.VITE_BASE_URL,
 	apiUrls: {
 		CHUCK_NORRIS: import.meta.env.VITE_CHUCK_NORRIS_API_URL,
 		IN_MEMORY: '',
@@ -32,6 +32,9 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 		SPOTIFY_CLIENT_ID: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
 		SPOTIFY_CLIENT_SECRET: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET,
 		SPOTIFY_REFRESH_TOKEN: import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN,
+		SPOTIFY_NOW_PLAYING_ENDPOINT: import.meta.env.VITE_SPOTIFY_NOW_PLAYING_ENDPOINT,
+		SPOTIFY_TOP_TRACKS_ENDPOINT: import.meta.env.VITE_SPOTIFY_TOP_TRACKS_ENDPOINT,
+		SPOTIFY_TOKEN_ENDPOINT: import.meta.env.VITE_SPOTIFY_TOKEN_ENDPOINT,
 	},
 	twitterConfig: {
 		TWITTER_API_KEY: import.meta.env.VITE_TWITTER_API_KEY,

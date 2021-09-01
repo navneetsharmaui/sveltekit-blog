@@ -6,7 +6,6 @@
 	// End: External Imports
 
 	// Core services
-	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment/environment.facade';
 
 	// Components
 	import Header from '$ui/components/header/Header.svelte';
@@ -42,7 +41,6 @@
 		},
 	];
 
-	const applicationHeaderTitle = `${sveltekitStarterEnvironmentFacade.environmentName} | Sveltekit`;
 	const stylesList: ICompiledCSS[] = [
 		{
 			url: '/tailwind.css',

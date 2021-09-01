@@ -12,7 +12,8 @@
 	// Start: Local Imports
 
 	// Core services
-	import { sveltekitStarterEnvironmentFacade } from '$core/services/environment/environment.facade';
+	import { environment } from '$environment/environment';
+
 	import { jsonHttpUtil } from '$core/services/https/http-json';
 
 	// Utils
@@ -34,7 +35,7 @@
 	 * @type {IMetaTagProperties}
 	 */
 	const metaData: Partial<IMetaTagProperties> = {
-		title: `${sveltekitStarterEnvironmentFacade.environmentName} | Sveltekit`,
+		title: `${environment.name} | Sveltekit`,
 		description:
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter home'],
