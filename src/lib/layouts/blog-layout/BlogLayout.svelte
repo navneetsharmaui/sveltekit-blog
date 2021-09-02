@@ -4,6 +4,7 @@
 	import { environment } from '$environment/environment';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import type { IBlogLayout } from '$lib/models/interfaces/iblog-layout.interface';
+	import ShareButtons from '$lib/shared/ui/components/share-buttons/ShareButtons.svelte';
 
 	// Exports
 
@@ -36,6 +37,9 @@
 	</div>
 	<div class="prose dark:prose-dark max-w-none w-full">
 		<slot />
+	</div>
+	<div class="mt-8">
+		<ShareButtons title={blog.title} description={blog.summary} url={`${environment.launchURL}/blog/${blog.slug}`} />
 	</div>
 	<div class="mt-8">
 		<!-- newsletter subscription -->
