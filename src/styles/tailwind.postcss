@@ -52,7 +52,7 @@ html {
 	z-index: 10;
 	top: 0;
 	backdrop-filter: saturate(180%) blur(20px);
-	transition: background-color 0.1 ease-in-out;
+	transition: background-color 0.1s ease-in-out;
 }
 
 .skip-nav {
@@ -67,6 +67,13 @@ main {
 	.sticky-nav {
 		backdrop-filter: none;
 		@apply bg-opacity-100;
+	}
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+	.sticky-nav {
+		-webkit-backdrop-filter: saturate(180%) blur(20px);
+		backdrop-filter: saturate(180%) blur(20px);
 	}
 }
 

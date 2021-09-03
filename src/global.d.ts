@@ -62,7 +62,6 @@ declare module '*.wbep' {
 }
 
 declare module 'micro-cookie-session';
-declare module 'marked';
 declare module 'svelte-awesome';
 
 // Start: Interfaces

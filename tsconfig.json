@@ -24,7 +24,7 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"checkJs": true,
-		"types": ["node", "yargs", "cookie", "node-fetch"],
+		"types": ["node", "yargs", "cookie", "node-fetch", "nprogress", "marked"],
 		"paths": {
 			"$app/*": [".svelte-kit/dev/runtime/app/*", ".svelte-kit/build/runtime/app/*"],
 			"$lib/*": ["src/lib/*"],

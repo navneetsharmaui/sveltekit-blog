@@ -64,7 +64,12 @@
 
 <div class="bg-white dark:bg-black">
 	<!-- Start: Header Navigation -->
-	<Header on:toggleTheme="{(e) => toggleThemeMode(e)}" navLinks="{navLinks}" />
+	<Header
+		on:toggleTheme="{(e) => toggleThemeMode(e)}"
+		navLinks="{navLinks}"
+		useThemeModeButton="{true}"
+		useTitleAndLogo="{false}"
+	/>
 	<!-- End: Header Navigation -->
 	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
 		<!-- Start: Defaull layout slot -->
