@@ -40,6 +40,7 @@
 		<slot />
 	</div>
 	<div class="mt-8">
+		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the article on'}</p>
 		<ShareButtons
 			title="{blog.title}"
 			description="{blog.summary}"
@@ -50,11 +51,19 @@
 		<!-- newsletter subscription -->
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300">
-		<ExternalLink href="{discussUrl(blog.slug)}" ariaLabel="{blog.title}">
+		<ExternalLink
+			href="{discussUrl(blog.slug)}"
+			ariaLabel="{blog.title}"
+			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
+		>
 			{'Discuss on Twitter'}
 		</ExternalLink>
 		{` • `}
-		<ExternalLink href="{editUrl(blog.slug)}" ariaLabel="{blog.title}">
+		<ExternalLink
+			href="{editUrl(blog.slug)}"
+			ariaLabel="{blog.title}"
+			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
+		>
 			{'Edit on GitHub'}
 		</ExternalLink>
 	</div>

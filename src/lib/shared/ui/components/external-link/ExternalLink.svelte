@@ -9,7 +9,9 @@
 	{#if ariaLabel}
 		<a
 			href="{href}"
-			class="{cssClasses ? cssClasses : 'text-gray-500 hover:text-gray-600 transition'}"
+			class="{cssClasses
+				? cssClasses
+				: 'text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-500 transition'}"
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="{ariaLabel}"
@@ -19,7 +21,9 @@
 	{:else}
 		<a
 			href="{href}"
-			class="{cssClasses ? cssClasses : 'text-gray-500 hover:text-gray-600 transition'}"
+			class="{cssClasses
+				? cssClasses
+				: 'text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-500 transition'}"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
