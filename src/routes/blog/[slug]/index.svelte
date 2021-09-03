@@ -2,7 +2,6 @@
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-
 	export async function load({ page, fetch }) {
 		const res = await fetch(`/blog/${page.params.slug}.json`);
 		return {

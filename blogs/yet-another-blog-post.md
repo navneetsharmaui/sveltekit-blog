@@ -5,6 +5,11 @@ author: "Navneet Sharma"
 publishedAt: "2021-05-05"
 slug: "yet-another-blog-post"
 published: true
+tags:
+- Angular
+- Typescript
+- web development
+- Programming
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque orci nec facilisis iaculis. Sed accumsan placerat dolor. Donec sollicitudin nisi sit amet sodales molestie. Maecenas sit amet dolor nulla. Fusce sed elit et erat consequat dignissim. Nunc eu erat felis. Mauris pretium, arcu eu dapibus tempor, mauris eros tempor tortor, eu tincidunt erat libero sit amet mi. Phasellus eu libero mollis, finibus lacus eget, sollicitudin nulla.

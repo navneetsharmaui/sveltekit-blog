@@ -5,4 +5,5 @@ export interface IBlog {
 	author: string;
 	publishedAt: string;
 	published: string;
+	tags: string[]
 }
