@@ -12,7 +12,7 @@
 		left: 0;
 
 		width: 100%;
-		height: 3px;
+		height: 4px;
 	}
 
 	:global(#nprogress .peg) {
