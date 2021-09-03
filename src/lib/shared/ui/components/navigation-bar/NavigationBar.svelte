@@ -33,12 +33,14 @@
 	class="flex flex-wrap items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 text-gray-900 bg-white sticky-nav md:my-8 dark:bg-black bg-opacity-60 dark:text-gray-100"
 >
 	<!-- <a href="#skip" class="skip-nav"> Skip to content </a> -->
-	{#if useThemeModeButton && !useTitleAndLogo}
+	{#if useThemeModeButton}
 		<button
 			on:click="{() => toggleTheme()}"
 			aria-label="Toggle Dark Mode"
 			type="button"
-			class="w-10 h-10 p-3 bg-gray-200 rounded dark:bg-gray-800"
+			class="{useTitleAndLogo
+				? 'sticky-theme-mode-button w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800'
+				: 'w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800'}"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +75,7 @@
 			</a>
 		</div>
 	{/if}
-	<div>
+	<div class="flex flex-row items-center">
 		{#each navLinks as navLink, index (navLink.path)}
 			<a sveltekit:prefetch href="{navLink.path}" class="p-1 text-gray-900 sm:p-4 dark:text-gray-100">
 				{navLink.label}

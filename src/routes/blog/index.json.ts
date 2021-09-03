@@ -8,9 +8,6 @@ export async function get({ query }) {
 	const limit = Number(query.get('limit') ?? Infinity);
 	const recent = Number(query.get('recent') ?? Infinity);
 
-	console.log('Query: ', query);
-	console.log('Query: ', query.get('recent'));
-
 	if (Number.isNaN(limit)) {
 		return {
 			status: 400,

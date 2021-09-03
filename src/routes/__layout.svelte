@@ -67,8 +67,10 @@
 	<Header
 		on:toggleTheme="{(e) => toggleThemeMode(e)}"
 		navLinks="{navLinks}"
+		logoImage="{'/images/author/navneet-sharma.jpg'}"
+		title="{'Navneet Sharma'}"
 		useThemeModeButton="{true}"
-		useTitleAndLogo="{false}"
+		useTitleAndLogo="{true}"
 	/>
 	<!-- End: Header Navigation -->
 	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
