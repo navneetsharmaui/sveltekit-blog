@@ -25,7 +25,7 @@
 	</h1>
 	<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
 		<div class="flex items-center">
-			<!-- <img alt="{'Navneet Sharma'}" height="24px" width="24px" src="/avatar.jpg" class="rounded-full" /> -->
+			<img alt="{'Navneet Sharma'}" src="{'/images/author/navneet-sharma.jpg'}" class="rounded-full w-7 h-7" />
 			<p class="text-sm text-gray-700 dark:text-gray-300 ml-2">
 				{blog.author}
 				{' / '}
