@@ -90,12 +90,13 @@
 	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
 		Hey, I’m Navneet Sharma
 	</h1>
-	<h2 class="prose text-gray-600 dark:text-gray-400 mb-16">
+	<p class="prose text-gray-600 dark:text-gray-400 mb-16">
 		I'm a developer and creator. I work as the Software Developer at XYZ. You’ve found my personal slice of the
-		internet –&nbsp;
-		{" while you're here or "}
-		<a sveltekit:prefetch href="/about">learn more about me.</a>
-	</h2>
+		internet –&nbsp; while you're here
+		<a sveltekit:prefetch href="/about" aria-label="about me" class="text-blue-500 hover:text-blue-700 transition"
+			>learn more about me.</a
+		>
+	</p>
 
 	<!-- Start: Popular Blog Section -->
 	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Popular </h3>

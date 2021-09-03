@@ -20,7 +20,7 @@
 </script>
 
 {#if blog && blog?.slug}
-	<a sveltekit:prefetch href="{`/bog/${blog.slug}`}" class="w-full">
+	<a sveltekit:prefetch href="{`/blog/${blog.slug}`}" class="w-full">
 		<div class="mb-8 w-full">
 			<div class="flex flex-col md:flex-row justify-between">
 				<h4 class="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
