@@ -66,6 +66,10 @@ declare module 'svelte-awesome';
 
 // Start: Interfaces
 
+interface Locals {
+	userid: string;
+}
+
 interface ImportMetaEnv {
 	VITE_BASE_URL: string;
 	VITE_CHUCK_NORRIS_API_URL: string;
