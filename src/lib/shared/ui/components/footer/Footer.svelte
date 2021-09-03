@@ -20,8 +20,7 @@
 			<ExternalLink href="https://www.instagram.com/asnavneetsharma/">Instagram</ExternalLink>
 		</div>
 		<div class="flex flex-col space-y-4">
-			<a sveltekit:prefetch href="/settings" class="text-gray-500 hover:text-gray-600 transition">Uses</a>
-			<a sveltekit:prefetch href="/settings" class="text-gray-500 hover:text-gray-600 transition"> Guestbook </a>
+			<a sveltekit:prefetch href="/blog/categories" class="text-gray-500 hover:text-gray-600 transition">Categories</a>
 			<a sveltekit:prefetch href="/settings" class="text-gray-500 hover:text-gray-600 transition"> Snippets </a>
 			<a sveltekit:prefetch href="/settings" class="text-gray-500 hover:text-gray-600 transition"> Tweets </a>
 		</div>
