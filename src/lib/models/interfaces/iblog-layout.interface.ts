@@ -1,10 +1,5 @@
-export interface IBlogLayout {
-	title: string;
-	author: string;
-	publishedAt: string;
-	slug: string;
-	published: boolean;
-	summary: string;
+import type { IBlog } from './iblog.interface';
+export interface IBlogLayout extends IBlog {
 	readingTime: string;
 	previousArticleLink?: string;
 	nextArticleLink?: string;

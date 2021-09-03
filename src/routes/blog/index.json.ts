@@ -6,8 +6,18 @@ export async function get({ query }) {
 
 	const postPromises = [];
 	const limit = Number(query.get('limit') ?? Infinity);
+	const recent = Number(query.get('recent') ?? Infinity);
+
+	console.log('Query: ', query);
+	console.log('Query: ', query.get('recent'));
 
 	if (Number.isNaN(limit)) {
+		return {
+			status: 400,
+		};
+	}
+
+	if (Number.isNaN(recent)) {
 		return {
 			status: 400,
 		};
@@ -22,12 +32,14 @@ export async function get({ query }) {
 		postPromises.push(promise);
 	}
 
+	const sliceParam = query.get('recent') ? recent : limit;
+
 	const posts = await Promise.all(postPromises);
-	const publishedPosts = posts.filter((post) => post.published).slice(0, limit);
+	const publishedPosts = posts.filter((post) => post.published).slice(0, sliceParam);
 
 	publishedPosts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 
 	return {
-		body: publishedPosts.slice(0, limit),
+		body: publishedPosts.slice(0, sliceParam),
 	};
 }

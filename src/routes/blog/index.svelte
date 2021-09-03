@@ -18,11 +18,11 @@
 	import BlogPost from '$components/blog-post/BlogPost.svelte';
 
 	// Models
-	import type { IBlogLayout } from '$lib/models/interfaces/iblog-layout.interface';
+	import type { IBlog } from '$models/interfaces/iblog.interface';
 	import type { IMetaTagProperties } from '$models/interfaces/imeta-tag-properties.interface';
 	// End: Local Imports
 
-	export let blogs!: IBlogLayout[];
+	export let blogs!: IBlog[];
 	// Start: Local component properties
 	/**
 	 * @type {IMetaTagProperties}
@@ -35,7 +35,7 @@
 		searchUrl: '/blog',
 	};
 
-	const mostRecentBlogs: IBlogLayout[] = blogs
+	const mostRecentBlogs: IBlog[] = blogs
 		.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
 		.slice(0, 3);
 

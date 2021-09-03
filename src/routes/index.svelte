@@ -1,5 +1,15 @@
-<style lang="scss" type="text/scss">
-</style>
+<script lang="ts" context="module">
+	/**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
+	export async function load({ fetch }) {
+		return {
+			props: {
+				blogs: await fetch(`/blog.json?recent=${3}`).then((res) => res.json()),
+			},
+		};
+	}
+</script>
 
 <script lang="ts">
 	// Start: External Imports
@@ -23,10 +33,12 @@
 
 	// Models
 	import type { IMetaTagProperties } from '$models/interfaces/imeta-tag-properties.interface';
-	import type { IBlogPostSummary } from '$models/interfaces/iblog-post-summary.interface';
 	import type { IProjectCard } from '$models/interfaces/iproject-card.interface';
+	import type { IBlog } from '$models/interfaces/iblog.interface';
 	// End: Local Imports
 
+	// Exports
+	export let blogs!: IBlog[];
 	// Start: Local component properties
 	/**
 	 * @type {IMetaTagProperties}
@@ -37,26 +49,6 @@
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter home'],
 	};
-
-	const logger: Logger = LoggerUtils.getInstance('Index');
-
-	const mostPopularBlogs: IBlogPostSummary[] = [
-		{
-			title: "What's new in Svelte: August 2021",
-			summary: 'Shadow DOM, export and await - oh my!',
-			slug: 'whats-new-in-svelte-august-2021',
-		},
-		{
-			title: "What's new in Svelte: July 2021",
-			summary: 'Keeping cool with fixes, TypeScript tooling and tonnes of new features',
-			slug: 'whats-new-in-svelte-july-2021',
-		},
-		{
-			title: "What's new in Svelte: June 2021",
-			summary: 'Progress towards SvelteKit 1.0 and tighter TypeScript/Svelte integrations in language tools',
-			slug: 'whats-new-in-svelte-june-2021',
-		},
-	];
 
 	const projects: IProjectCard[] = [
 		{
@@ -99,11 +91,11 @@
 	</p>
 
 	<!-- Start: Popular Blog Section -->
-	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Popular </h3>
+	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Recent </h3>
 
-	{#if mostPopularBlogs.length > 0}
-		{#each mostPopularBlogs as blogPost}
-			<BlogPost blog="{blogPost}" />
+	{#if blogs.length > 0}
+		{#each blogs as blog, index (blog.slug)}
+			<BlogPost blog="{blog}" />
 		{/each}
 	{/if}
 	<!-- End: Popular Blog Section -->
