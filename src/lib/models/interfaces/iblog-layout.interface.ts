@@ -6,4 +6,6 @@ export interface IBlogLayout {
 	published: boolean;
 	summary: string;
 	readingTime: string;
+	previousArticleLink?: string;
+	nextArticleLink?: string;
 }

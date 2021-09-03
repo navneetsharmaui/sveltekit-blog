@@ -5,6 +5,7 @@
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import type { IBlogLayout } from '$lib/models/interfaces/iblog-layout.interface';
 	import ShareButtons from '$lib/shared/ui/components/share-buttons/ShareButtons.svelte';
+	import NextArticle from '$ui/components/next-article/NextArticle.svelte';
 
 	// Exports
 
@@ -39,7 +40,11 @@
 		<slot />
 	</div>
 	<div class="mt-8">
-		<ShareButtons title={blog.title} description={blog.summary} url={`${environment.launchURL}/blog/${blog.slug}`} />
+		<ShareButtons
+			title="{blog.title}"
+			description="{blog.summary}"
+			url="{`${environment.launchURL}/blog/${blog.slug}`}"
+		/>
 	</div>
 	<div class="mt-8">
 		<!-- newsletter subscription -->
@@ -52,5 +57,8 @@
 		<ExternalLink href="{editUrl(blog.slug)}" ariaLabel="{blog.title}">
 			{'Edit on GitHub'}
 		</ExternalLink>
+	</div>
+	<div class="mt-8 w-full">
+		<NextArticle previousHref="{blog.previousArticleLink}" nextHref="{blog.nextArticleLink}" />
 	</div>
 </article>

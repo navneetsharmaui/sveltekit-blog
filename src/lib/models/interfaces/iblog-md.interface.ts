@@ -1,10 +1,5 @@
-export interface IBlogMD {
-	title: string;
-	author: string;
-	publishedAt: string;
-	slug: string;
-	published: boolean;
-	summary: string;
-	readingTime: string;
+import type { IBlogLayout } from './iblog-layout.interface';
+export interface IBlogMD extends IBlogLayout {
 	html: string;
+	index: number;
 }
