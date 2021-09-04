@@ -35,10 +35,6 @@
 		}
 	}
 
-	.logo {
-		top: -2px;
-	}
-
 	@keyframes playing {
 		0% {
 			height: 3px;
