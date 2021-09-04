@@ -41,6 +41,7 @@
 	},
 	"scripts": {
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
+		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
 		"remove-css": "node --loader ts-node/esm scripts/js/remove-css-imports.ts",
 		"add-css": "node --loader ts-node/esm scripts/js/add-css-imports.ts",
 		"dev:postcss": "cross-env TAILWIND_MODE=build postcss src/styles/global.scss -o static/global.css -w",

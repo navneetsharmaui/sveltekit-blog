@@ -1,18 +1,19 @@
 import querystring from 'querystring';
+import fetch from 'node-fetch';
 
 import { environment } from '$environment/environment';
 
-const client_id = environment.spotifyConfig.SPOTIFY_CLIENT_ID;
-const client_secret = environment.spotifyConfig.SPOTIFY_CLIENT_SECRET;
-const refresh_token = environment.spotifyConfig.SPOTIFY_REFRESH_TOKEN;
+const client_id = `${environment.spotifyConfig.SPOTIFY_CLIENT_ID}`.trim().slice();
+const client_secret = `${environment.spotifyConfig.SPOTIFY_CLIENT_SECRET}`.trim().slice();
+const refresh_token = `${environment.spotifyConfig.SPOTIFY_REFRESH_TOKEN}`.trim().slice();
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
-const NOW_PLAYING_ENDPOINT = environment.spotifyConfig.SPOTIFY_NOW_PLAYING_ENDPOINT;
-const TOP_TRACKS_ENDPOINT = environment.spotifyConfig.SPOTIFY_TOP_TRACKS_ENDPOINT;
-const TOKEN_ENDPOINT = environment.spotifyConfig.SPOTIFY_TOKEN_ENDPOINT;
+const NOW_PLAYING_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_NOW_PLAYING_ENDPOINT}`.trim().slice();
+const TOP_TRACKS_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_TOP_TRACKS_ENDPOINT}`.trim().slice();
+const TOKEN_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_TOKEN_ENDPOINT}`.trim().slice();
 
 const getAccessToken = async () => {
-	const response = await fetch(TOKEN_ENDPOINT, {
+	return await fetch(`${TOKEN_ENDPOINT}`, {
 		method: 'POST',
 		headers: {
 			Authorization: `Basic ${basic}`,
@@ -22,15 +23,13 @@ const getAccessToken = async () => {
 			grant_type: 'refresh_token',
 			refresh_token,
 		}),
-	});
-
-	return response.json();
+	}).then((res) => res.json());
 };
 
 export const getNowPlaying = async () => {
 	const { access_token } = await getAccessToken();
 
-	return fetch(NOW_PLAYING_ENDPOINT, {
+	return fetch(`${NOW_PLAYING_ENDPOINT}`, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
@@ -40,7 +39,7 @@ export const getNowPlaying = async () => {
 export const getTopTracks = async () => {
 	const { access_token } = await getAccessToken();
 
-	return fetch(TOP_TRACKS_ENDPOINT, {
+	return fetch(`${TOP_TRACKS_ENDPOINT}`, {
 		headers: {
 			Authorization: `Bearer ${access_token}`,
 		},
