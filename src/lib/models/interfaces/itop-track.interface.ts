@@ -1,4 +1,4 @@
-export interface ITrack {
+export interface ITopTrack {
 	title: string;
 	ranking: string;
 	songUrl: string;

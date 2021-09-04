@@ -13,10 +13,11 @@ export async function get({ query }) {
 	const response = await getTopTracks();
 	const { items } = await response.json();
 
-	const tracks = items.slice(0, limit).map((track) => ({
+	const tracks = items.slice(0, limit).map((track, index) => ({
 		artist: track.artists.map((_artist) => _artist.name).join(', '),
 		songUrl: track.external_urls.spotify,
 		title: track.name,
+		ranking: index + 1,
 	}));
 
 	return {
@@ -24,6 +25,6 @@ export async function get({ query }) {
 		headers: {
 			'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
 		},
-		body: { tracks },
+		body: tracks,
 	};
 }
