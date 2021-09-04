@@ -1,11 +1,19 @@
 <script lang="ts">
 	import { parseISO, format } from 'date-fns';
 
+	// Environment
 	import { environment } from '$environment/environment';
+
+	// Components
+	import type { IBlogLayout } from '$models/interfaces/iblog-layout.interface';
+
+	// Components
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
-	import type { IBlogLayout } from '$lib/models/interfaces/iblog-layout.interface';
-	import ShareButtons from '$lib/shared/ui/components/share-buttons/ShareButtons.svelte';
+	import ShareButtons from '$ui/components/share-buttons/ShareButtons.svelte';
 	import NextArticle from '$ui/components/next-article/NextArticle.svelte';
+
+	// Utils
+	import { convertToSlug } from '$utils/convert-to-slug';
 
 	// Exports
 
@@ -40,6 +48,27 @@
 		<slot />
 	</div>
 	<div class="mt-8">
+		{#if blog.tags.length > 0}
+			<div class="flex flex-row flex-wrap w-full mt-4 items-center">
+				{#each blog.tags as tag, index (tag)}
+					<a
+						sveltekit:prefetch
+						href="{`/blog/tags/${convertToSlug(tag)}`}"
+						aria-label="{tag}"
+						class="text-xs text-gray-400 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
+					>
+						{tag.toUpperCase()}
+					</a>
+					{#if index !== blog.tags.length - 1}
+						<p class="mr-2 ml-2 text-gray-500 dark:text-gray-50">
+							{` • `}
+						</p>
+					{/if}
+				{/each}
+			</div>
+		{/if}
+	</div>
+	<div class="mt-8">
 		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the article on'}</p>
 		<ShareButtons
 			title="{blog.title}"
@@ -47,10 +76,7 @@
 			url="{`${environment.launchURL}/blog/${blog.slug}`}"
 		/>
 	</div>
-	<div class="mt-8">
-		<!-- newsletter subscription -->
-	</div>
-	<div class="text-sm text-gray-700 dark:text-gray-300">
+	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
 		<ExternalLink
 			href="{discussUrl(blog.slug)}"
 			ariaLabel="{blog.title}"
