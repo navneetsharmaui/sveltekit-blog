@@ -1,8 +1,77 @@
 <style lang="scss" type="text/scss">
+	.playing {
+		min-height: 17px;
+		min-width: 17px;
+	}
+
+	.crest {
+		width: 3px;
+		height: 3px;
+		margin-right: 3px;
+		background: #65696d;
+		border-radius: 1.5px;
+
+		&:hover {
+			background: #19af55;
+		}
+		&:nth-child(1) {
+			animation: playing 700ms infinite ease;
+		}
+
+		&:nth-child(2) {
+			animation: playing 1400ms infinite ease;
+		}
+
+		&:nth-child(3) {
+			animation: playing 350ms infinite ease;
+		}
+
+		&:nth-child(4) {
+			animation: playing 550ms infinite ease;
+		}
+
+		&:nth-child(5) {
+			animation: playing 450ms infinite ease;
+		}
+	}
+
+	.logo {
+		top: -2px;
+	}
+
+	@keyframes playing {
+		0% {
+			height: 3px;
+		}
+		50% {
+			height: 12px;
+		}
+		to {
+			height: 3px;
+		}
+	}
 </style>
 
 <script lang="ts">
-	let data: { songUrl?: string; title?: string; artist?: string } = {};
+	import { onDestroy, onMount } from 'svelte';
+	import { nowPlayingSong } from '$stores';
+	import ExternalLink from '$lib/shared/ui/components/external-link/ExternalLink.svelte';
+
+	let clearSetTimeout: NodeJS.Timeout;
+	const getCurrentlyPlayingSong = (): void => {
+		fetch(`/api/now-playing.json`)
+			.then((res) => res.json())
+			.then((response) => nowPlayingSong.set(response));
+
+		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
+	};
+	onMount(async () => {
+		getCurrentlyPlayingSong();
+	});
+
+	onDestroy(() => {
+		clearTimeout(clearSetTimeout);
+	});
 </script>
 
 <div class="flex flex-row-reverse sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
@@ -15,15 +84,14 @@
 
 	<div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
 		<div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
-			{#if data?.songUrl}
-				<a
-					class="text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate"
-					href="{data.songUrl}"
-					target="_blank"
-					rel="noopener noreferrer"
+			{#if $nowPlayingSong?.songUrl}
+				<ExternalLink
+					href="{$nowPlayingSong.songUrl}"
+					cssClasses="{'text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate'}"
+					ariaLabel="{$nowPlayingSong.title}"
 				>
-					{data.title}
-				</a>
+					{$nowPlayingSong.title}
+				</ExternalLink>
 			{:else}
 				<p class="text-gray-800 dark:text-gray-200 font-medium"> Not Playing </p>
 			{/if}
@@ -32,8 +100,15 @@
 				{' – '}
 			</span>
 			<p class="text-gray-500 dark:text-gray-300 max-w-max truncate">
-				{data?.artist ?? 'Spotify'}
+				{$nowPlayingSong?.artist ?? 'Spotify'}
 			</p>
+			{#if $nowPlayingSong.isPlaying}
+				<div class="ml-2 flex flex-row justify-center items-center playing">
+					{#each [1, 2, 3, 4] as num, index (num)}
+						<span class="crest"></span>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>

@@ -80,6 +80,7 @@ const config = {
 		vite: () => ({
 			resolve: {
 				alias: {
+					$stores: resolve(__dirname, './src/stores'),
 					$components: resolve(__dirname, './src/lib/shared/components'),
 					$ui: resolve(__dirname, './src/lib/shared/ui'),
 					$layouts: resolve(__dirname, './src/lib/layouts'),
