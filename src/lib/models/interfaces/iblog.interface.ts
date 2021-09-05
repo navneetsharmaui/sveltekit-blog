@@ -1,9 +1,18 @@
 export interface IBlog {
 	slug: string;
 	title: string;
-	summary: string;
 	author: string;
-	publishedAt: string;
-	published: string;
-	tags: string[]
+	published: boolean;
+	tags: string[];
+	banner: string;
+	bannerCredit?: string;
+	canonical: string;
+	date: string;
+	description: string;
+	edit: string;
+	incomingLinks: string[];
+	modified: string;
+	outgoingLinks: string[];
+	outgoingSlugs: string[];
+	readingTime: string;
 }

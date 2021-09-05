@@ -36,12 +36,12 @@
 	};
 
 	const mostRecentBlogs: IBlog[] = blogs
-		.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+		.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
 		.slice(0, 3);
 
 	let searchValue: string = '';
 	$: filteredBlogPosts = blogs
-		.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+		.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
 		.filter((blog) => blog.title.toLowerCase().includes(searchValue.toLowerCase()));
 
 	// End: Local component properties
@@ -60,11 +60,11 @@
 		There are {blogs.length} articles on this site. Use
 		<a
 			sveltekit:prefetch
-			href="/blog/categories"
-			aria-label="categories"
-			class="text-blue-500 hover:text-blue-700 transition">categories</a
+			href="/blog/tags"
+			aria-label="tags"
+			class="text-blue-500 hover:text-blue-700 transition">tags</a
 		>
-		to get articles based on different categories. Use the search below to filter by title.
+		to get articles based on different tags. Use the search below to filter by title.
 	</p>
 	<!-- Start: Search blogs -->
 	<div class="relative w-full mb-4">

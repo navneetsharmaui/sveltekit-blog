@@ -33,22 +33,22 @@
 	 * @type {IMetaTagProperties}
 	 */
 	let metaData: Partial<IMetaTagProperties> = {
-		title: `${blog.title} | Sveltekit`,
+		title: `${blog.metadata.title} | Sveltekit`,
 		description:
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
-		url: `/${blog.slug}`,
+		url: `/${blog.metadata.slug}`,
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter users'],
-		searchUrl: `/${blog.slug}`,
+		searchUrl: `/${blog.metadata.slug}`,
 	};
 
 	// Start: Reactive properties
 	$: {
-		if (blog && blog.slug) {
+		if (blog && blog.metadata.slug) {
 			metaData = {
-				title: `${blog.title} | Sveltekit`,
-				url: `/users/${blog.slug}`,
-				keywords: ['sveltekit', 'sveltekit-starter', 'sveltekit-starter-users', `sveltekit ${blog.title}`],
-				searchUrl: `/users/${blog.slug}`,
+				title: `${blog.metadata.title} | Sveltekit`,
+				url: `/users/${blog.metadata.slug}`,
+				keywords: ['sveltekit', 'sveltekit-starter', 'sveltekit-starter-users', `sveltekit ${blog.metadata.title}`],
+				searchUrl: `/users/${blog.metadata.slug}`,
 			};
 		}
 	}

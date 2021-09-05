@@ -49,7 +49,7 @@
 
 	let searchValue: string = '';
 	$: filteredBlogPosts = blogs
-		.sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+		.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
 		.filter((blog) => blog.title.toLowerCase().includes(searchValue.toLowerCase()));
 
 	// End: Local component properties

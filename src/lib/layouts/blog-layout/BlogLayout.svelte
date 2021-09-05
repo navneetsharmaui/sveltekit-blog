@@ -20,7 +20,7 @@
 	export let blog!: IBlogLayout;
 
 	// Local Methods
-	const editUrl = (slug: string): string => `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.mdsvex`;
+	const editUrl = (slug: string): string => `${blog.metadata.edit}`;
 	const discussUrl = (slug: string): string =>
 		`${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
 			`https://navneetsharma.io/blog/${slug}`,
@@ -29,28 +29,30 @@
 
 <article class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
 	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-		{blog.title}
+		{blog.metadata.title}
 	</h1>
 	<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
 		<div class="flex items-center">
 			<img alt="{'Navneet Sharma'}" src="{'/images/author/navneet-sharma.jpg'}" class="rounded-full w-7 h-7" />
 			<p class="text-sm text-gray-700 dark:text-gray-300 ml-2">
-				{blog.author}
+				{blog.metadata.author}
 				{' / '}
-				{format(parseISO(blog.publishedAt), 'MMMM dd, yyyy')}
+				{format(parseISO(blog.metadata.date), 'MMMM dd, yyyy')}
 			</p>
 		</div>
 		<p class="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
-			{blog.readingTime}
+			{blog.metadata.readingTime}
 		</p>
 	</div>
 	<div class="prose dark:prose-dark max-w-none w-full">
+		<img src="{blog.metadata.banner}" alt="{blog.metadata.title}" width="{1080}" height="{810}" />
+
 		<slot />
 	</div>
 	<div class="mt-8">
-		{#if blog.tags.length > 0}
+		{#if blog.metadata.tags.length > 0}
 			<div class="flex flex-row flex-wrap w-full mt-4 items-center">
-				{#each blog.tags as tag, index (tag)}
+				{#each blog.metadata.tags as tag, index (tag)}
 					<a
 						sveltekit:prefetch
 						href="{`/blog/tags/${convertToSlug(tag)}`}"
@@ -59,7 +61,7 @@
 					>
 						{tag.toUpperCase()}
 					</a>
-					{#if index !== blog.tags.length - 1}
+					{#if index !== blog.metadata.tags.length - 1}
 						<p class="mr-2 ml-2 text-gray-500 dark:text-gray-50">
 							{` • `}
 						</p>
@@ -71,23 +73,23 @@
 	<div class="mt-8">
 		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the article on'}</p>
 		<ShareButtons
-			title="{blog.title}"
-			description="{blog.summary}"
-			url="{`${environment.launchURL}/blog/${blog.slug}`}"
+			title="{blog.metadata.title}"
+			description="{blog.metadata.description}"
+			url="{`${environment.launchURL}/blog/${blog.metadata.slug}`}"
 		/>
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
 		<ExternalLink
-			href="{discussUrl(blog.slug)}"
-			ariaLabel="{blog.title}"
+			href="{discussUrl(blog.metadata.slug)}"
+			ariaLabel="{blog.metadata.title}"
 			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
 		>
 			{'Discuss on Twitter'}
 		</ExternalLink>
 		{` • `}
 		<ExternalLink
-			href="{editUrl(blog.slug)}"
-			ariaLabel="{blog.title}"
+			href="{editUrl(blog.metadata.slug)}"
+			ariaLabel="{blog.metadata.title}"
 			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
 		>
 			{'Edit on GitHub'}

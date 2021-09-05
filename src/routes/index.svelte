@@ -5,7 +5,7 @@
 	export async function load({ fetch }) {
 		return {
 			props: {
-				blogs: await fetch(`/blog.json?recent=${3}`).then((res) => res.json()),
+				blogs: await fetch(`/blog.json?limit=${3}`).then((res) => res.json()),
 			},
 		};
 	}
@@ -85,13 +85,13 @@
 	<p class="prose text-gray-600 dark:text-gray-400 mb-16">
 		I'm a developer and creator. I work as the Software Developer at XYZ. You’ve found my personal slice of the
 		internet –&nbsp; while you're here
-		<a sveltekit:prefetch href="/about" aria-label="about me" class="text-blue-500 hover:text-blue-700 transition"
+		<a sveltekit:prefetch href="/about" aria-label="about me" class="text-blue-700 hover:text-blue-800 transition"
 			>learn more about me.</a
 		>
 	</p>
 
 	<!-- Start: Popular Blog Section -->
-	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Recent </h3>
+	<h2 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"> Most Recent </h2>
 
 	{#if blogs.length > 0}
 		{#each blogs as blog, index (blog.slug)}
@@ -101,7 +101,7 @@
 	<!-- End: Popular Blog Section -->
 
 	<!-- Start: Top Projects -->
-	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white"> Top Projects </h3>
+	<h2 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white"> Top Projects </h2>
 
 	{#if projects.length > 0}
 		{#each projects as project}
