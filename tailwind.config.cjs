@@ -12,7 +12,9 @@ const config = {
 				'blue-opaque': 'rgb(13 42 148 / 18%)',
 			},
 			fontFamily: {
-				sans: ['Inter', ...fontFamily.sans],
+				sans: ['Raleway', ...fontFamily.sans],
+				display: ['Raleway', ...fontFamily.sans],
+				body: ['Raleway', ...fontFamily.sans],
 			},
 			typography: (theme) => ({
 				DEFAULT: {

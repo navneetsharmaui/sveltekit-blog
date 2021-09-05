@@ -19,7 +19,7 @@ import { ISODate } from '$utils/date-formatters';
 import { environment } from '$environment/environment';
 
 const blogPath = 'contents/blogs';
-const snippetsPath = 'content/snippets';
+const snippetsPath = 'contents/snippets';
 const blogEditPath = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}`.trim().slice();
 const langs = {
 	bash: 'bash',
