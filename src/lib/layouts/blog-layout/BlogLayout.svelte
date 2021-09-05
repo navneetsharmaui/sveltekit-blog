@@ -45,8 +45,6 @@
 		</p>
 	</div>
 	<div class="prose dark:prose-dark max-w-none w-full">
-		<img src="{blog.metadata.banner}" alt="{blog.metadata.title}" width="{1080}" height="{810}" />
-
 		<slot />
 	</div>
 	<div class="mt-8">
