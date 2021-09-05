@@ -119,6 +119,12 @@
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
+	"lint-staged": {
+		"*.{jpg,jpeg,png,gif}": [
+			"node --loader ts-node/esm scripts/js/optimize-image.ts",
+			"git add"
+		]
+	},
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",
 		"@lukeed/uuid": "^2.0.0",
