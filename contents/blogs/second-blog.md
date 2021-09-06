@@ -1,12 +1,16 @@
 ---
-title: Second blog based on the sveltekit
-slug: second-blog-based-on-the-sveltekit
-description: Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh. Donec maximus mollis mauris quis viverra.
-author: Navneet Sharma
-date: 2021-09-03
-tags: Lorem, ipsum, Phasellus
-banner: /images/banner.jpg
+title: "Second blog based on the sveltekit"
+slug: "second-blog"
+description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
+author: "Navneet Sharma"
+date: "2021-09-03"
 published: true
+tags:
+- Svelte
+- JavaScript
+- Typescript
+- web development
+- Programming
 ---
 
 ## Lorem ipsum

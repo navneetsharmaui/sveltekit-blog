@@ -1,4 +1,4 @@
-import { posts } from '../_blog-api';
+import posts from '../_blog-api';
 
 export function get({ params }) {
 	const post = posts
