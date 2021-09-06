@@ -1,14 +1,14 @@
 ---
-title: "Second blog based on the sveltekit"
-slug: "second-blog"
+title: "Welcome to my blog!"
+slug: "welcome-to-my-blog"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Navneet Sharma"
-date: "2021-09-03"
+date: "2021-09-06"
+banner: "/images/banner.jpg"
 published: true
 tags:
-- Svelte
+- React
 - JavaScript
-- Typescript
 - web development
 - Programming
 ---

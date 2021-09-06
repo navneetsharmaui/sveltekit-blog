@@ -36,9 +36,9 @@
 		title: `${blog.metadata.title} | Sveltekit`,
 		description:
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
-		url: `/${blog.metadata.slug}`,
+		url: `/blog/${blog.metadata.slug}`,
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter users'],
-		searchUrl: `/${blog.metadata.slug}`,
+		searchUrl: `/blog/${blog.metadata.slug}`,
 	};
 
 	// Start: Reactive properties
@@ -47,7 +47,12 @@
 			metaData = {
 				title: `${blog.metadata.title} | Sveltekit`,
 				url: `/blog/${blog.metadata.slug}`,
-				keywords: ['sveltekit', 'sveltekit-starter', 'sveltekit-starter-users', `sveltekit ${blog.metadata.title}`],
+				keywords: [
+					'sveltekit',
+					'sveltekit-starter',
+					'sveltekit-starter-users',
+					`sveltekit ${blog.metadata.title}`,
+				],
 				searchUrl: `/blog/${blog.metadata.slug}`,
 			};
 		}

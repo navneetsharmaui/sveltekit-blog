@@ -14,7 +14,7 @@ const writeToFile = (filePath: string, data): void => fs.writeFileSync(filePath,
 
 const processArguments = process.argv;
 
-const env = getArguments(processArguments, '--env-file');
+// const env = getArguments(processArguments, '--env-file');
 
 // const envFile = env
 // 	? env === 'local'
@@ -59,7 +59,7 @@ const routes = workspace['projects'][project]['routes'];
 const assets = workspace['projects'][project]['assets'];
 
 const URL = process.env.VITE_BASE_URL;
-const baseURL = URL ? URL : '/';
+const baseURL = URL ? URL : 'https://sveltekit-blog-ashy.vercel.app';
 const pages = [''];
 
 fs.readdirSync(`${root}/${routes}`).forEach((file) => {

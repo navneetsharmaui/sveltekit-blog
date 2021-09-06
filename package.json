@@ -68,7 +68,7 @@
 		"build:sveltekit": "cross-env-shell svelte-kit build",
 		"build": "run-s remove-css build:sitemap:prod build:env:prod build:scss build:postcss build:postcss:taildwindcss build:sveltekit build:env:local",
 		"build:verbose:sveltekit": "cross-env-shell svelte-kit build --verbose",
-		"build:verbose": "run-s check-env remove-css build:sitemap:prod build:env:prod build:scss build:postcss build:postcss:taildwindcss build:verbose:sveltekit build:env:local",
+		"build:verbose": "run-s build:scss build:postcss build:postcss:taildwindcss build:verbose:sveltekit",
 		"build:static": "cross-env ADAPTER=static OPTIONS='{}' npm run build",
 		"build:node": "cross-env ADAPTER=node OPTIONS='{}' npm run build",
 		"build:netlify": "cross-env ADAPTER=netlify OPTIONS='{}' npm run build",
@@ -118,12 +118,6 @@
 		"copy:snippets": "copyfiles \"src/lib/contents/snippets/**\" static/images  --exclude=\"**/*.md\" --up=1",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
-	},
-	"lint-staged": {
-		"*.{jpg,jpeg,png,gif}": [
-			"node --loader ts-node/esm scripts/js/optimize-image.ts",
-			"git add"
-		]
 	},
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",

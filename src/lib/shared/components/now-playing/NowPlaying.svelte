@@ -33,6 +33,10 @@
 		&:nth-child(5) {
 			animation: playing 450ms infinite ease;
 		}
+
+		&:nth-child(5) {
+			animation: playing 850ms infinite ease;
+		}
 	}
 
 	@keyframes playing {

@@ -22,12 +22,8 @@
 			title: metaData.title,
 			description: metaData.description,
 			url: metaData.url
-				? environment.launchURL
-					? `${environment.launchURL}${metaData.url}`
-					: `${metaData.url}`
-				: environment.launchURL
-				? environment.launchURL
-				: '/',
+				? `${environment.launchURL}${metaData.url}`
+				: environment.launchURL,
 			locale: 'en_US',
 		},
 		twitter: {
@@ -35,27 +31,15 @@
 			title: metaData.title,
 			description: metaData.description,
 			site: metaData.url
-				? environment.launchURL
-					? `${environment.launchURL}${metaData.url}`
-					: `${metaData.url}`
-				: environment.launchURL
-				? environment.launchURL
-				: '/',
+				? `${environment.launchURL}${metaData.url}`
+				: environment.launchURL,
 		},
 		url: metaData.url
-			? environment.launchURL
-				? `${environment.launchURL}${metaData.url}`
-				: `${metaData.url}`
-			: environment.launchURL
-			? environment.launchURL
-			: '/',
-		searchUrl: metaData.url
-			? environment.launchURL
-				? `${environment.launchURL}${metaData.url}`
-				: `${metaData.url}`
-			: environment.launchURL
-			? environment.launchURL
-			: '/',
+			? `${environment.launchURL}${metaData.url}`
+			: environment.launchURL,
+		searchUrl: metaData.searchUrl
+			? `${environment.launchURL}${metaData.searchUrl}`
+			: environment.launchURL,
 	};
 
 	const jsonLd = (content) => `<${'script'} type="application/ld+json">${JSON.stringify(content)}</${'script'}>`;
@@ -75,12 +59,8 @@
 			metaData.openGraph = {
 				...metaData.openGraph,
 				image: metaData.url
-					? environment.launchURL
-						? `${environment.launchURL}${metaData.url}`
-						: `${metaData.url}`
-					: environment.launchURL
-					? environment.launchURL
-					: '/',
+					? `${environment.launchURL}${metaData.url}`
+					: environment.launchURL,
 				'image:width': metaData.image.width,
 				'image:height': metaData.image.height,
 				'image:alt': metaData.image.alt || metaData.title,
@@ -88,12 +68,8 @@
 			metaData.twitter = {
 				...metaData.twitter,
 				image: metaData.url
-					? environment.launchURL
-						? `${environment.launchURL}${metaData.url}`
-						: `${metaData.url}`
-					: environment.launchURL
-					? environment.launchURL
-					: '/',
+					? `${environment.launchURL}${metaData.url}`
+					: environment.launchURL,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 		}
@@ -160,7 +136,7 @@
 			'@context': 'https://schema.org',
 			'@type': 'Organization',
 			url: metaData.url,
-			logo: `/favicon.ico`,
+			logo: `${environment.launchURL}/favicon.ico`,
 		})}
 	{/if}
 

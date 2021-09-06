@@ -1,13 +1,13 @@
 ---
-title: "First blog based on the sveltekit"
-slug: "first-blog"
+title: "Yet another article"
+slug: "yet-another-blog-post"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Navneet Sharma"
-date: "2021-09-01"
+date: "2021-09-06"
+banner: "/images/banner.jpg"
 published: true
 tags:
-- Svelte
-- JavaScript
+- Angular
 - Typescript
 - web development
 - Programming

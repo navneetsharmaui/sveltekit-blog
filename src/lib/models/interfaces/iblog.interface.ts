@@ -4,15 +4,12 @@ export interface IBlog {
 	author: string;
 	published: boolean;
 	tags: string[];
-	banner: string;
+	banner?: string;
 	bannerCredit?: string;
-	canonical: string;
+	canonical?: string;
 	date: string;
 	description: string;
-	edit: string;
-	incomingLinks: string[];
-	modified: string;
-	outgoingLinks: string[];
-	outgoingSlugs: string[];
+	edit?: string;
+	modified?: string;
 	readingTime: string;
 }

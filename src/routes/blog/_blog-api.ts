@@ -8,11 +8,13 @@ import readingTime from 'reading-time';
 
 loadLanguages(['shell', 'markdown', 'json']);
 
+const blogPath = './contents/blogs';
+
 const posts = fs
-	.readdirSync('./contents/blogs')
+	.readdirSync(`${blogPath}`)
 	.filter((elem) => elem.endsWith('.md'))
 	.map((postFilename) => {
-		const postContent = fs.readFileSync(`./contents/blogs/${postFilename}`, {
+		const postContent = fs.readFileSync(`${blogPath}/${postFilename}`, {
 			encoding: 'utf8',
 		});
 
@@ -21,7 +23,6 @@ const posts = fs
 		const renderer = new marked.Renderer();
 
 		renderer.code = (source, lang: string) => {
-			console.log('Lang', lang);
 			const html = Prism.highlight(source, Prism.languages[lang], lang);
 			return `<pre class='language-${lang}'><code class='language-${lang}'>${html}</code></pre>`;
 		};
@@ -50,4 +51,5 @@ const modifiedPosts = posts
 			: 0,
 	);
 
+console.log('\x1b[35m[posts] generate\x1b[0m');
 export default modifiedPosts;

@@ -64,7 +64,6 @@ declare module '*.wbep' {
 declare module 'micro-cookie-session';
 declare module 'svelte-awesome';
 declare module 'gatsby-remark-prismjs/highlight-code.js';
-declare module 'svelte-image';
 
 // Start: Interfaces
 

@@ -20,7 +20,7 @@
 	export let blog!: IBlogLayout;
 
 	// Local Methods
-	const editUrl = (slug: string): string => `${blog.metadata.edit}`;
+	const editUrl = (slug: string): string => `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.mdsvex`;
 	const discussUrl = (slug: string): string =>
 		`${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
 			`https://navneetsharma.io/blog/${slug}`,
@@ -73,7 +73,7 @@
 		<ShareButtons
 			title="{blog.metadata.title}"
 			description="{blog.metadata.description}"
-			url="{`${''}/blog/${blog.metadata.slug}`}"
+			url="{`${environment.launchURL}/blog/${blog.metadata.slug}`}"
 		/>
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
