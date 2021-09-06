@@ -53,25 +53,8 @@
 </style>
 
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
 	import { nowPlayingSong } from '$stores';
-	import ExternalLink from '$lib/shared/ui/components/external-link/ExternalLink.svelte';
-
-	let clearSetTimeout: NodeJS.Timeout;
-	const getCurrentlyPlayingSong = (): void => {
-		fetch(`/api/now-playing.json`)
-			.then((res) => res.json())
-			.then((response) => nowPlayingSong.set(response));
-
-		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
-	};
-	onMount(async () => {
-		getCurrentlyPlayingSong();
-	});
-
-	onDestroy(() => {
-		clearTimeout(clearSetTimeout);
-	});
+	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 </script>
 
 <div class="flex flex-row-reverse sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
