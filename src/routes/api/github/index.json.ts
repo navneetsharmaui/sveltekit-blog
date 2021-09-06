@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
-const GITHUB_USER_ENDPOINT = 'https://api.github.com/users/leerob';
-const GITHUB_USER_REPO_ENDPOINT = 'https://api.github.com/users/leerob/repos?per_page=100';
+const GITHUB_USER_ENDPOINT = 'https://api.github.com/users/navneetsharmaui';
+const GITHUB_USER_REPO_ENDPOINT = 'https://api.github.com/users/navneetsharmaui/repos?per_page=100';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ query }) {

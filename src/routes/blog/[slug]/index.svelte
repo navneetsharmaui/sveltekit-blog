@@ -46,9 +46,9 @@
 		if (blog && blog.metadata.slug) {
 			metaData = {
 				title: `${blog.metadata.title} | Sveltekit`,
-				url: `/users/${blog.metadata.slug}`,
+				url: `/blog/${blog.metadata.slug}`,
 				keywords: ['sveltekit', 'sveltekit-starter', 'sveltekit-starter-users', `sveltekit ${blog.metadata.title}`],
-				searchUrl: `/users/${blog.metadata.slug}`,
+				searchUrl: `/blog/${blog.metadata.slug}`,
 			};
 		}
 	}
