@@ -21,25 +21,13 @@
 			...metaData.openGraph,
 			title: metaData.title,
 			description: metaData.description,
-			url: metaData.url
-				? `${environment.launchURL}${metaData.url}`
-				: environment.launchURL,
 			locale: 'en_US',
 		},
 		twitter: {
 			...metaData.twitter,
 			title: metaData.title,
 			description: metaData.description,
-			site: metaData.url
-				? `${environment.launchURL}${metaData.url}`
-				: environment.launchURL,
 		},
-		url: metaData.url
-			? `${environment.launchURL}${metaData.url}`
-			: environment.launchURL,
-		searchUrl: metaData.searchUrl
-			? `${environment.launchURL}${metaData.searchUrl}`
-			: environment.launchURL,
 	};
 
 	const jsonLd = (content) => `<${'script'} type="application/ld+json">${JSON.stringify(content)}</${'script'}>`;
