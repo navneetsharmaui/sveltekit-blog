@@ -109,7 +109,7 @@ export function readPosts(): {
 			const banner = `/images/blogs/${metadata.slug}/banner.jpg`;
 
 			const canonical = path
-				.normalize(path.join(environment.launchURL, 'blog', metadata.slug))
+				.normalize(path.join('', 'blog', metadata.slug))
 				.replace(/\\/g, '/')
 				.replace('/', '//');
 

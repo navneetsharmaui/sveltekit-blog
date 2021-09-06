@@ -73,7 +73,7 @@
 		<ShareButtons
 			title="{blog.metadata.title}"
 			description="{blog.metadata.description}"
-			url="{`${environment.launchURL}/blog/${blog.metadata.slug}`}"
+			url="{`${''}/blog/${blog.metadata.slug}`}"
 		/>
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
