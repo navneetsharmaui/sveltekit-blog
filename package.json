@@ -40,7 +40,7 @@
 		"url": "git+https://github.com/navneetsharmaui/sveltekit-blog.git"
 	},
 	"scripts": {
-		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && npm run copy:content",
+		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .netlify && npm run copy:content",
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
 		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
 		"remove-css": "node --loader ts-node/esm scripts/js/remove-css-imports.ts",
