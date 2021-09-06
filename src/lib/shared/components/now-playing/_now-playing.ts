@@ -1,13 +1,11 @@
 import { getNowPlaying } from '$utils/spotify';
 
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export const getNowPlayingSong = async () => {
 	const response = await getNowPlaying();
 
 	if (response.status === 204 || response.status > 400) {
 		return {
-			status: 200,
-			body: { isPlaying: false },
+			isPlaying: false,
 		};
 	}
 
@@ -15,8 +13,7 @@ export async function get({ query }) {
 
 	if (song.item === null) {
 		return {
-			status: 200,
-			body: { isPlaying: false },
+			isPlaying: false,
 		};
 	}
 
@@ -28,17 +25,11 @@ export async function get({ query }) {
 	const songUrl = song.item.external_urls.spotify;
 
 	return {
-		status: 200,
-		headers: {
-			'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
-		},
-		body: {
-			album,
-			albumImageUrl,
-			artist,
-			isPlaying,
-			songUrl,
-			title,
-		},
+		album,
+		albumImageUrl,
+		artist,
+		isPlaying,
+		songUrl,
+		title,
 	};
-}
+};

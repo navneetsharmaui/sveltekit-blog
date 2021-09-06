@@ -31,6 +31,7 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 		SESSION_KEY: import.meta.env.VITE_SESSION_KEY,
 	},
 	spotifyConfig: {
+		SPOTIFY_CLIENT_BASIC: import.meta.env.VITE_SPOTIFY_CLIENT_BASIC,
 		SPOTIFY_CLIENT_ID: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
 		SPOTIFY_CLIENT_SECRET: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET,
 		SPOTIFY_REFRESH_TOKEN: import.meta.env.VITE_SPOTIFY_REFRESH_TOKEN,

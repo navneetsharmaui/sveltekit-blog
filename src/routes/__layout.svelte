@@ -1,8 +1,6 @@
 <script lang="ts">
 	// Start: Local Imports
 
-	import { onDestroy, onMount } from 'svelte';
-	import { nowPlayingSong } from '$stores';
 	// Start: External Imports
 	import '../styles/tailwind.postcss';
 
@@ -59,22 +57,6 @@
 		const htmlTag = document.getElementsByTagName('html').item(0);
 		htmlTag.className = event.detail.dark ? 'dark' : 'light';
 	};
-
-	let clearSetTimeout: NodeJS.Timeout;
-	const getCurrentlyPlayingSong = (): void => {
-		fetch(`/api/now-playing.json`)
-			.then((res) => res.json())
-			.then((response) => nowPlayingSong.set(response));
-
-		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
-	};
-	onMount(async () => {
-		getCurrentlyPlayingSong();
-	});
-
-	onDestroy(() => {
-		clearTimeout(clearSetTimeout);
-	});
 
 	// End: Local component methods
 </script>

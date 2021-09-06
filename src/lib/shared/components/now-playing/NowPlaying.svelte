@@ -55,6 +55,23 @@
 <script lang="ts">
 	import { nowPlayingSong } from '$stores';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
+	import { onDestroy, onMount } from 'svelte';
+	import { getNowPlayingSong } from './_now-playing';
+
+	let clearSetTimeout: any;
+
+	const getCurrentlyPlayingSong = (): void => {
+		getNowPlayingSong().then((response) => nowPlayingSong.set(response));
+
+		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
+	};
+	onMount(async () => {
+		getCurrentlyPlayingSong();
+	});
+
+	onDestroy(() => {
+		clearTimeout(clearSetTimeout);
+	});
 </script>
 
 <div class="flex flex-row-reverse sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">

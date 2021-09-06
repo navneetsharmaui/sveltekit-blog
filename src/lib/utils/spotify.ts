@@ -1,13 +1,10 @@
 import querystring from 'querystring';
-import fetch from 'node-fetch';
 
 import { environment } from '$environment/environment';
 
-const client_id = `${environment.spotifyConfig.SPOTIFY_CLIENT_ID}`.trim().slice();
-const client_secret = `${environment.spotifyConfig.SPOTIFY_CLIENT_SECRET}`.trim().slice();
 const refresh_token = `${environment.spotifyConfig.SPOTIFY_REFRESH_TOKEN}`.trim().slice();
 
-const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const basic = `${environment.spotifyConfig.SPOTIFY_CLIENT_BASIC}`.trim().slice();
 const NOW_PLAYING_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_NOW_PLAYING_ENDPOINT}`.trim().slice();
 const TOP_TRACKS_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_TOP_TRACKS_ENDPOINT}`.trim().slice();
 const TOKEN_ENDPOINT = `${environment.spotifyConfig.SPOTIFY_TOKEN_ENDPOINT}`.trim().slice();
