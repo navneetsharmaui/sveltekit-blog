@@ -20,7 +20,7 @@
 </script>
 
 {#if project && project?.slug}
-	<a sveltekit:prefetch class="mb-4 hover:shadow" href="{`/projects/${project?.slug}`}" aria-label="{project?.title}">
+	<!-- <a sveltekit:prefetch class="mb-4 hover:shadow" href="{`/projects/${project?.slug}`}" aria-label="{project?.title}"> -->
 		<div class="flex items-center border border-gray-200 dark:border-gray-800 rounded p-4">
 			<div>
 				<h4 class="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
@@ -31,5 +31,5 @@
 				</p>
 			</div>
 		</div>
-	</a>
+	<!-- </a> -->
 {/if}

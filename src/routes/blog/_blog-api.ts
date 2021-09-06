@@ -40,7 +40,7 @@ const langs = {
 };
 
 export const posts = readPosts();
-export const snippets = readSnippets();
+// export const snippets = readSnippets();
 
 export function readPosts(): {
 	html: string;
@@ -158,61 +158,61 @@ export function readPosts(): {
 	return postsSorted;
 }
 
-export function readSnippets(): {
-	html: string;
-	metadata: {
-		title: string;
-		slug: string;
-		author: string;
-		date: string;
-		tags: string[];
-		url: string;
-	};
-}[] {
-	console.log('\x1b[35m[snippets] generate\x1b[0m');
+// export function readSnippets(): {
+// 	html: string;
+// 	metadata: {
+// 		title: string;
+// 		slug: string;
+// 		author: string;
+// 		date: string;
+// 		tags: string[];
+// 		url: string;
+// 	};
+// }[] {
+// 	console.log('\x1b[35m[snippets] generate\x1b[0m');
 
-	const folderContent = [...traverseFolder(snippetsPath, '.md')];
-	return folderContent
-		.map(({ path }) => {
-			const { html, metadata } = parseFileToHtmlAndMeta(path, {
-				createAnchorAndFragment: (level, metadata) =>
-					level == 2
-						? {
-								anchor: `snippets/${metadata.slug}`,
-								fragment: metadata.slug,
-						  }
-						: {},
-				createHeadingParts: (metadata) => {
-					return [
-						metadata.image ? `<a href="/${metadata.image}" download>Download</a>` : '',
-						metadata.image
-							? `<a
-				target="_blank"
-				rel="external"
-				href="https://twitter.com/intent/tweet?text=${metadata.title}&via=tim_deschryver&url=${
-									import.meta.env.VITE_PUBLIC_BASE_PATH
-							  }/snippets/${metadata.slug}">Share</a>`
-							: '',
-					];
-				},
-			});
-			const tags = metadata.tags.split(',').map((p) => (p ? p.trim() : p));
-			const image = `${import.meta.env.VITE_PUBLIC_BASE_PATH}/${metadata.image}`;
-			const url = `/snippets/${metadata.slug}`;
+// 	const folderContent = [...traverseFolder(snippetsPath, '.md')];
+// 	return folderContent
+// 		.map(({ path }) => {
+// 			const { html, metadata } = parseFileToHtmlAndMeta(path, {
+// 				createAnchorAndFragment: (level, metadata) =>
+// 					level == 2
+// 						? {
+// 								anchor: `snippets/${metadata.slug}`,
+// 								fragment: metadata.slug,
+// 						  }
+// 						: {},
+// 				createHeadingParts: (metadata) => {
+// 					return [
+// 						metadata.image ? `<a href="/${metadata.image}" download>Download</a>` : '',
+// 						metadata.image
+// 							? `<a
+// 				target="_blank"
+// 				rel="external"
+// 				href="https://twitter.com/intent/tweet?text=${metadata.title}&via=tim_deschryver&url=${
+// 									import.meta.env.VITE_PUBLIC_BASE_PATH
+// 							  }/snippets/${metadata.slug}">Share</a>`
+// 							: '',
+// 					];
+// 				},
+// 			});
+// 			const tags = metadata.tags.split(',').map((p) => (p ? p.trim() : p));
+// 			const image = `${import.meta.env.VITE_PUBLIC_BASE_PATH}/${metadata.image}`;
+// 			const url = `/snippets/${metadata.slug}`;
 
-			return {
-				html,
-				metadata: {
-					...metadata,
-					date: ISODate(metadata.date),
-					tags,
-					image,
-					url,
-				},
-			};
-		})
-		.sort(sortByDate);
-}
+// 			return {
+// 				html,
+// 				metadata: {
+// 					...metadata,
+// 					date: ISODate(metadata.date),
+// 					tags,
+// 					image,
+// 					url,
+// 				},
+// 			};
+// 		})
+// 		.sort(sortByDate);
+// }
 
 function parseFileToHtmlAndMeta(
 	file,
