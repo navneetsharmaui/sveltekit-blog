@@ -18,8 +18,8 @@ import readingTime from 'reading-time';
 import { ISODate } from '$utils/date-formatters';
 import { environment } from '$environment/environment';
 
-const blogPath = 'contents/blogs';
-const snippetsPath = 'contents/snippets';
+const blogPath = 'src/lib/contents/blogs';
+const snippetsPath = 'src/lib/contents/snippets';
 const blogEditPath = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}`.trim().slice();
 const langs = {
 	bash: 'bash',
