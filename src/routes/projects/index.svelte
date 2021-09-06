@@ -31,9 +31,9 @@
 	const metaData: Partial<IMetaTagProperties> = {
 		title: 'Project | Sveltekit Blog',
 		description: 'Project page of Sveltekit blog starter project',
-		url: '/project',
+		url: '/projects',
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter about'],
-		searchUrl: '/project',
+		searchUrl: '/projects',
 	};
 	// End: Local component properties
 </script>

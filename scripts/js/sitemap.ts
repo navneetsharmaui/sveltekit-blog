@@ -16,35 +16,35 @@ const processArguments = process.argv;
 
 const env = getArguments(processArguments, '--env-file');
 
-const envFile = env
-	? env === 'local'
-		? fs.existsSync('.env.local')
-			? '.env.local'
-			: fs.existsSync(`.env.${env}.local`)
-			? `.env.${env}.local`
-			: fs.existsSync(`.env.${env}`)
-			? `.env.${env}`
-			: '.env'
-		: '.env'
-	: '.env';
+// const envFile = env
+// 	? env === 'local'
+// 		? fs.existsSync('.env.local')
+// 			? '.env.local'
+// 			: fs.existsSync(`.env.${env}.local`)
+// 			? `.env.${env}.local`
+// 			: fs.existsSync(`.env.${env}`)
+// 			? `.env.${env}`
+// 			: '.env'
+// 		: '.env'
+// 	: '.env';
 
-try {
-	if (!fs.existsSync(envFile)) {
-		throw new Error(`
-			Environment files are not there in the workspace.
-			Create the .env file with required properties defined in it.
-			Create .env.local for local environment properties.
-			Create .env.{development | qa | production }.local to check application with environment specific properties.
-			If you create a new environment specific .env file add it in the .gitignore and do not commit that file.
-		`);
-	}
-} catch (error) {
-	console.error(error);
-}
+// try {
+// 	if (!fs.existsSync(envFile)) {
+// 		throw new Error(`
+// 			Environment files are not there in the workspace.
+// 			Create the .env file with required properties defined in it.
+// 			Create .env.local for local environment properties.
+// 			Create .env.{development | qa | production }.local to check application with environment specific properties.
+// 			If you create a new environment specific .env file add it in the .gitignore and do not commit that file.
+// 		`);
+// 	}
+// } catch (error) {
+// 	console.error(error);
+// }
 
-dotenv.config({
-	path: envFile,
-});
+// dotenv.config({
+// 	path: envFile,
+// });
 
 const project = getArguments(processArguments, '--project');
 
@@ -59,7 +59,7 @@ const routes = workspace['projects'][project]['routes'];
 const assets = workspace['projects'][project]['assets'];
 
 const URL = process.env.VITE_BASE_URL;
-const baseURL = URL ? URL : 'https://localhost:3000';
+const baseURL = URL ? URL : '/';
 const pages = [''];
 
 fs.readdirSync(`${root}/${routes}`).forEach((file) => {
