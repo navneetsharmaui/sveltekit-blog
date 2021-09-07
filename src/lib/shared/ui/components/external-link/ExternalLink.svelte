@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let href!: string;
+	export let href: string = '';
 
 	export let ariaLabel = '';
 	export let cssClasses = '';
