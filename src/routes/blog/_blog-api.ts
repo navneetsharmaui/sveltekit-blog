@@ -1,3 +1,4 @@
+import type { IBlog } from '$models/interfaces/iblog.interface';
 import { convertToSlug } from '$utils/convert-to-slug';
 import fs from 'fs';
 import frontMatter from 'front-matter';
@@ -45,10 +46,10 @@ const posts = fs
 
 			const { fragment } = createAnchorAndFragment(rawtext);
 			if (!fragment) {
-				return `<h${level} class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">${headingText}</h${level}>`;
+				return `<h${level}>${headingText}</h${level}>`;
 			}
 
-			return `<h${level} class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white" id="${fragment}"><a href="#${fragment}" class="anchor">${headingText}</a></h${level}>`;
+			return `<h${level} id="${fragment}"><a href="#${fragment}" class="anchor">${headingText}</a></h${level}>`;
 		};
 		const html = marked(postFrontMatter.body, { renderer });
 
@@ -64,7 +65,7 @@ const posts = fs
 		};
 	});
 
-const modifiedPosts = posts
+const modifiedBlogs: { html: string; metadata: IBlog }[] = posts
 	.filter((post) => post.metadata.published)
 	.sort((a, b) =>
 		new Date(a.metadata.date).getTime() > new Date(b.metadata.date).getTime()
@@ -74,5 +75,5 @@ const modifiedPosts = posts
 			: 0,
 	);
 
-console.log('\x1b[35m[posts] generate\x1b[0m');
-export default modifiedPosts;
+console.log('\x1b[35m[blogs] generate\x1b[0m');
+export default modifiedBlogs;

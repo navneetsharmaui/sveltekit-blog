@@ -28,13 +28,6 @@
 	/**
 	 * @type {IMetaTagProperties}
 	 */
-	const metaData: Partial<IMetaTagProperties> = {
-		title: 'Tags | Sveltekit Blog',
-		description: 'Tags page of Sveltekit blog starter project',
-		url: '/blog/tags',
-		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter about'],
-		searchUrl: '/blog/tags',
-	};
 
 	// End: Local component properties
 	let listWithDuplicatetags: string[] = [];
@@ -44,6 +37,15 @@
 			listWithDuplicatetags.length === 0 ? [...blog.tags] : [...listWithDuplicatetags, ...blog.tags];
 	});
 	$: tags = [...new Set(listWithDuplicatetags)];
+
+	$: metaData = {
+		title: 'Tags | Sveltekit Blog',
+		description: 'Tags page of Sveltekit blog starter project',
+		url: '/blog/tags',
+		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter tags', 'svelte starter tags', ...tags],
+		searchUrl: '/blog/tags',
+	};
+
 	// Local Methods
 </script>
 

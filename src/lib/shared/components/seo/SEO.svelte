@@ -14,6 +14,8 @@
 	export let metaData: Partial<IMetaTagProperties> = {};
 	// End: Exported Properties
 
+	const BASE_URL: string = environment.launchURL ? environment.launchURL : 'https://sveltekit-starter-blog.netlify.app';
+
 	metaData = {
 		...metaData,
 		robots: 'index,follow',
@@ -47,8 +49,8 @@
 			metaData.openGraph = {
 				...metaData.openGraph,
 				image: metaData.url
-					? `${environment.launchURL}${metaData.url}`
-					: environment.launchURL,
+					? `${BASE_URL}${metaData.url}`
+					: BASE_URL,
 				'image:width': metaData.image.width,
 				'image:height': metaData.image.height,
 				'image:alt': metaData.image.alt || metaData.title,
@@ -56,8 +58,8 @@
 			metaData.twitter = {
 				...metaData.twitter,
 				image: metaData.url
-					? `${environment.launchURL}${metaData.url}`
-					: environment.launchURL,
+					? `${BASE_URL}${metaData.url}`
+					: BASE_URL,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 		}
@@ -71,7 +73,11 @@
 	<meta name="googlebot" content="{metaData.robots}" />
 
 	{#if isProd}
-		<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+		<link rel="alternate" type="application/rss+xml" title="Sveltekit Blog - RSS Feed" href="/rss.xml" />
+	{/if}
+
+	{#if isProd}
+		<link rel="sitemap" type="application/xml" title="Sveltekit Blog - Sitemap" href="/sitemap.xml" />
 	{/if}
 
 	{#if metaData && metaData.title}
@@ -87,16 +93,8 @@
 		<meta name="keywords" content="{metaData.keywords.join(', ')}" />
 	{/if}
 
-	{#if metaData && metaData.url}
-		<link rel="canonical" href="{metaData.url}" />
-	{/if}
-
-	{#if metaData && metaData.rss}
-		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{metaData.rss}" />
-	{/if}
-
-	{#if metaData && metaData.atom}
-		<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{metaData.atom}" />
+	{#if metaData && metaData.url && BASE_URL}
+		<link rel="canonical" href="{`${BASE_URL}${metaData.url}/`}" />
 	{/if}
 
 	{#if metaData && metaData.twitter}
@@ -124,7 +122,7 @@
 			'@context': 'https://schema.org',
 			'@type': 'Organization',
 			url: metaData.url,
-			logo: `${environment.launchURL}/favicon.ico`,
+			logo: `${BASE_URL}/favicon.ico`,
 		})}
 	{/if}
 

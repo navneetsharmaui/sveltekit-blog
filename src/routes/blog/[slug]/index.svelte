@@ -34,10 +34,9 @@
 	 */
 	let metaData: Partial<IMetaTagProperties> = {
 		title: `${blog.metadata.title} | Sveltekit`,
-		description:
-			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
+		description: `${blog.metadata.description}`,
 		url: `/blog/${blog.metadata.slug}`,
-		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter users'],
+		keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...blog.metadata.tags],
 		searchUrl: `/blog/${blog.metadata.slug}`,
 	};
 
