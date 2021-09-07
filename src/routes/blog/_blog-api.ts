@@ -20,7 +20,11 @@ const posts = fs
 
 		const postFrontMatter = frontMatter(postContent);
 
-		const renderer = new marked.Renderer();
+		const renderer = new marked.Renderer({
+			gfm: true,
+			breaks: true,
+			headerIds: true,
+		});
 
 		renderer.code = (source, lang: string) => {
 			const html = Prism.highlight(source, Prism.languages[lang], lang);
