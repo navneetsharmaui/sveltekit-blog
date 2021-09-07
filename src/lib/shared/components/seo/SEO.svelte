@@ -41,24 +41,24 @@
 		if (!!metaData.image && typeof metaData.image === 'string') {
 			metaData.openGraph = {
 				...metaData.openGraph,
-				image: metaData.image,
+				image: `${BASE_URL}${metaData.image}`,
 			};
 			metaData.twitter = {
 				...metaData.twitter,
-				image: metaData.image,
+				image: `${BASE_URL}${metaData.image}`,
 			};
 		}
 		if (typeof metaData.image === 'object') {
 			metaData.openGraph = {
 				...metaData.openGraph,
-				image: metaData.url ? `${BASE_URL}${metaData.url}` : BASE_URL,
+				image: `${BASE_URL}${metaData.image}`,
 				'image:width': metaData.image.width,
 				'image:height': metaData.image.height,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 			metaData.twitter = {
 				...metaData.twitter,
-				image: metaData.url ? `${BASE_URL}${metaData.url}` : BASE_URL,
+				image: `${BASE_URL}${metaData.image}`,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 		}
