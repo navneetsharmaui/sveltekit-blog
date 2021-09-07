@@ -62,7 +62,7 @@ const content = './contents/blogs';
 					});
 				}
 				await browser.close();
-				serve.kill();
+				serve.kill('SIGHUP');
 				process.exit(0);
 			}
 		});
