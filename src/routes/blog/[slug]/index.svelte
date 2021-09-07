@@ -13,6 +13,7 @@
 </script>
 
 <script lang="ts">
+	import { parseISO, format } from 'date-fns';
 	// Start: Local Imports
 	// Components
 	import BlogLayout from '$layouts/blog-layout/BlogLayout.svelte';
@@ -38,6 +39,16 @@
 		url: `/blog/${blog.metadata.slug}`,
 		keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...blog.metadata.tags],
 		searchUrl: `/blog/${blog.metadata.slug}`,
+		image: `/images/blogs/${blog.metadata.slug}/images/banner.jpg`,
+		twitter: {
+			label1: 'Written by',
+			data1: blog.metadata.author,
+			label2: 'Published on',
+			data2: format(parseISO(blog.metadata.date), 'MMMM dd, yyyy'),
+		},
+		openGraph: {
+			type: 'article',
+		},
 	};
 
 	// Start: Reactive properties
@@ -49,6 +60,16 @@
 				keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...blog.metadata.tags],
 				searchUrl: `/blog/${blog.metadata.slug}`,
 				description: `${blog.metadata.description}`,
+				image: `/images/blogs/${blog.metadata.slug}/images/banner.jpg`,
+				twitter: {
+					label1: 'Written by',
+					data1: blog.metadata.author,
+					label2: 'Published on',
+					data2: format(parseISO(blog.metadata.date), 'MMMM dd, yyyy'),
+				},
+				openGraph: {
+					type: 'article',
+				},
 			};
 		}
 	}

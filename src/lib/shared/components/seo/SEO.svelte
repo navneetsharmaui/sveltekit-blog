@@ -21,6 +21,7 @@
 		robots: 'index,follow',
 		openGraph: {
 			...metaData.openGraph,
+			url: `${BASE_URL}${metaData.url}/`,
 			title: metaData.title,
 			description: metaData.description,
 			locale: 'en_US',

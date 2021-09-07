@@ -41,6 +41,7 @@
 	},
 	"scripts": {
 		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && rimraf .netlify && npm run copy:content",
+		"pre-commit": "npm run banners && git add ./contents/**/banner.jpg && lint-staged",
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
 		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
 		"remove-css": "node --loader ts-node/esm scripts/js/remove-css-imports.ts",
@@ -108,6 +109,7 @@
 		"eslint:fix": "eslint ./src/**/*.{js,svelte,ts} --ignore-path .gitignore . --fix",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"banners": "node --loader ts-node/esm scripts/js/blog-banner.ts",
 		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts",
 		"copy:content": "npm run copy:blog && npm run copy:snippets",
 		"copy:blog": "copyfiles \"contents/blogs/**\" static/images --exclude=\"**/index.md\" --up=1",

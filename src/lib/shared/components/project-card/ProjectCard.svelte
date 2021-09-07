@@ -22,9 +22,9 @@
 {#if project && project?.slug}
 	<div class="mb-4 hover:transition-shadow hover:shadow dark:hover:transition-shadow dark:hover:shadow flex items-center border border-gray-200 dark:border-gray-800 rounded p-4">
 		<div>
-			<h4 class="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
+			<h3 class="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
 				{project?.title}
-			</h4>
+			</h3>
 			<p class="leading-5 text-gray-700 dark:text-gray-300">
 				{project?.description}
 			</p>
