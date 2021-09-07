@@ -2,7 +2,7 @@
 title: "A second blog post"
 slug: "a-second-post"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
-author: "Navneet Sharma"
+author: "Sveltekit Blogger"
 date: "2021-09-06"
 banner: "/images/banner.jpg"
 published: true

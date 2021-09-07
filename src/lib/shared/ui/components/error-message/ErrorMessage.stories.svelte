@@ -10,7 +10,7 @@
 <Template let:args>
 	<ErrorMessage {...args}>
 		<span>
-			<div> Navneet </div>
+			<div> Sveltekit Blogger </div>
 			<div> SSE </div>
 		</span>
 	</ErrorMessage>

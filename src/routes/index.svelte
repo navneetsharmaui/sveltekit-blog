@@ -44,7 +44,7 @@
 	 * @type {IMetaTagProperties}
 	 */
 	const metaData: Partial<IMetaTagProperties> = {
-		title: `${environment.name} | Sveltekit`,
+		title: `Sveltekit Blogger | Sveltekit`,
 		description:
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter home'],
@@ -55,14 +55,14 @@
 			title: 'Sveltekit Starter',
 			description:
 				'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable web application.',
-			slug: 'sveltekit-starter',
+			slug: 'https://github.com/navneetsharmaui/sveltekit-starter',
 			icon: '',
 		},
 		{
 			title: 'Sveltekit Blog',
 			description:
-				'A Sveltkit blog starter project to get up fast with sveltekit. Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable web application.',
-			slug: 'sveltekit-blog',
+				'Sveltekit Blog starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable web application and blog.',
+			slug: 'https://github.com/navneetsharmaui/sveltekit-blog',
 			icon: '',
 		},
 	];
@@ -80,7 +80,7 @@
 <!-- Start: Home Page container -->
 <div class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
 	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-		Hey, I’m Navneet Sharma
+		Hey, I’m Sveltekit Blogger
 	</h1>
 	<p class="prose text-gray-600 dark:text-gray-400 mb-16">
 		I'm a developer and creator. I work as the Software Developer at XYZ. You’ve found my personal slice of the

@@ -17,6 +17,7 @@
 	// Start: Local Imports
 
 	// Start: External Imports
+	import '../styles/tailwind.postcss';
 
 	// End: External Imports
 
@@ -82,8 +83,8 @@
 	<Header
 		on:toggleTheme="{(e) => toggleThemeMode(e)}"
 		navLinks="{navLinks}"
-		logoImage="{'/images/author/navneet-sharma.jpg'}"
-		title="{'Navneet Sharma'}"
+		logoImage="{'/images/author/sveltekit-blogger.svg'}"
+		title="{'Sveltekit Blogger'}"
 		useThemeModeButton="{true}"
 		useTitleAndLogo="{true}"
 	/>

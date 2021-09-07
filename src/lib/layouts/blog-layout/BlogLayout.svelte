@@ -34,8 +34,8 @@
 	<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
 		<div class="flex items-center">
 			<img
-				alt="{'Navneet Sharma'}"
-				src="{'/images/author/navneet-sharma.jpg'}"
+				alt="{'Sveltekit Blogger'}"
+				src="{'/images/author/sveltekit-blogger.svg'}"
 				width="1.75rem"
 				height="1.75rem"
 				class="rounded-full w-7 h-7"
