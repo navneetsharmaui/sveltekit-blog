@@ -12,9 +12,9 @@ const blogPath = './contents/blogs';
 
 const posts = fs
 	.readdirSync(`${blogPath}`)
-	.filter((elem) => elem.endsWith('.md'))
-	.map((postFilename) => {
-		const postContent = fs.readFileSync(`${blogPath}/${postFilename}`, {
+	.filter((elem) => !elem.startsWith('.') && !elem.includes('.'))
+	.map((postFoldername) => {
+		const postContent = fs.readFileSync(`${blogPath}/${postFoldername}/index.md`, {
 			encoding: 'utf8',
 		});
 

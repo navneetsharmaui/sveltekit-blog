@@ -20,7 +20,7 @@
 </script>
 
 {#if project && project?.slug}
-	<div class="mb-4 hover:shadow flex items-center border border-gray-200 dark:border-gray-800 rounded p-4">
+	<div class="mb-4 hover:transition-shadow hover:shadow dark:hover:transition-shadow dark:hover:shadow flex items-center border border-gray-200 dark:border-gray-800 rounded p-4">
 		<div>
 			<h4 class="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
 				{project?.title}

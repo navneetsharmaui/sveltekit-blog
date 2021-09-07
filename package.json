@@ -40,7 +40,7 @@
 		"url": "git+https://github.com/navneetsharmaui/sveltekit-blog.git"
 	},
 	"scripts": {
-		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .netlify && npm run copy:content",
+		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && rimraf .netlify && npm run copy:content",
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
 		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
 		"remove-css": "node --loader ts-node/esm scripts/js/remove-css-imports.ts",
@@ -114,8 +114,8 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts",
 		"copy:content": "npm run copy:blog && npm run copy:snippets",
-		"copy:blog": "copyfiles \"src/lib/contents/blogs/**\" static/images --exclude=\"**/index.md\" --up=1",
-		"copy:snippets": "copyfiles \"src/lib/contents/snippets/**\" static/images  --exclude=\"**/*.md\" --up=1",
+		"copy:blog": "copyfiles \"contents/blogs/**\" static/images --exclude=\"**/index.md\" --up=1",
+		"copy:snippets": "copyfiles \"contents/snippets/**\" static/images  --exclude=\"**/*.md\" --up=1",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
