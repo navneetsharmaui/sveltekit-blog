@@ -42,7 +42,7 @@
 	"scripts": {
 		"prepare": "husky install",
 		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && rimraf .netlify && npm run copy:content",
-		"pre-commit": "npm run banners && git add ./contents/blogs/**/banner.jpg && lint-staged",
+		"pre-commit": "lint-staged",
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
 		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
 		"remove-css": "node --loader ts-node/esm scripts/js/remove-css-imports.ts",
