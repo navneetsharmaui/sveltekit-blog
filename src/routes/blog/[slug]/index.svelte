@@ -46,13 +46,9 @@
 			metaData = {
 				title: `${blog.metadata.title} | Sveltekit`,
 				url: `/blog/${blog.metadata.slug}`,
-				keywords: [
-					'sveltekit',
-					'sveltekit-starter',
-					'sveltekit-starter-users',
-					`sveltekit ${blog.metadata.title}`,
-				],
+				keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...blog.metadata.tags],
 				searchUrl: `/blog/${blog.metadata.slug}`,
+				description: `${blog.metadata.description}`,
 			};
 		}
 	}
