@@ -67,14 +67,8 @@ main {
 	}
 }
 
-.prose .anchor {
-	@apply absolute invisible;
-
-	margin-left: -1em;
-	padding-right: 0.5em;
-	width: 80%;
-	max-width: 700px;
-	cursor: pointer;
+.anchor {
+	@apply visible no-underline;
 }
 
 .anchor:hover {
@@ -82,12 +76,16 @@ main {
 }
 
 .prose .anchor:after {
-	@apply text-gray-300 dark:text-gray-700;
-	content: '#';
+	@apply text-gray-600 dark:text-gray-300;
 }
 
 .prose *:hover > .anchor {
 	@apply visible no-underline;
+}
+
+.prose .anchor {
+	@apply visible no-underline;
+	@apply text-gray-700 dark:text-gray-500;
 }
 
 .prose pre {
