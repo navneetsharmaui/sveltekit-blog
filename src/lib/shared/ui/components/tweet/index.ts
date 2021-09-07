@@ -1,1 +1,1 @@
-export { default as Tweet }  from './Tweet.svelte';
+export { default as Tweet } from './Tweet.svelte';

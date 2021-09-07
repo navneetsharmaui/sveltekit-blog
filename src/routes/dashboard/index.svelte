@@ -36,7 +36,6 @@
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter dashboard'],
 		searchUrl: '/dashboard',
 	};
-
 </script>
 
 <!-- Start: Header Tag -->

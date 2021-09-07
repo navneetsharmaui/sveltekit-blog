@@ -57,4 +57,4 @@
 <p class="text-gray-600 dark:text-gray-400 mb-8">
 	{summary}
 </p>
-<slot/>
+<slot />

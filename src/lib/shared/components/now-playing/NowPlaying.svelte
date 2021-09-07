@@ -61,8 +61,7 @@
 	let clearSetTimeout: any;
 
 	const getCurrentlyPlayingSong = (): void => {
-		getNowPlayingSong()
-			.then((response) => nowPlayingSong.set(response));
+		getNowPlayingSong().then((response) => nowPlayingSong.set(response));
 		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
 	};
 	onMount(async () => {

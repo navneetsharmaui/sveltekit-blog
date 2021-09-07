@@ -6,5 +6,4 @@
 	const createdAt = new Date(tweet.created_at);
 
 	const formatedText = tweet.text.replace(/https:\/\/[\n\S]+/g, '');
-
 </script>

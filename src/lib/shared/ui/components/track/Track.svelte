@@ -20,7 +20,7 @@
 			<ExternalLink
 				href="{track.songUrl}"
 				cssClasses="{'font-medium text-gray-900 dark:text-gray-100 truncate w-60 sm:w-96 md:w-full'}"
-				ariaLabel={track.title}
+				ariaLabel="{track.title}"
 			>
 				{track.title}
 			</ExternalLink>

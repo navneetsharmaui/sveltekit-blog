@@ -14,7 +14,9 @@
 	export let metaData: Partial<IMetaTagProperties> = {};
 	// End: Exported Properties
 
-	const BASE_URL: string = environment.launchURL ? environment.launchURL : 'https://sveltekit-starter-blog.netlify.app';
+	const BASE_URL: string = environment.launchURL
+		? environment.launchURL
+		: 'https://sveltekit-starter-blog.netlify.app';
 
 	metaData = {
 		...metaData,
@@ -49,18 +51,14 @@
 		if (typeof metaData.image === 'object') {
 			metaData.openGraph = {
 				...metaData.openGraph,
-				image: metaData.url
-					? `${BASE_URL}${metaData.url}`
-					: BASE_URL,
+				image: metaData.url ? `${BASE_URL}${metaData.url}` : BASE_URL,
 				'image:width': metaData.image.width,
 				'image:height': metaData.image.height,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 			metaData.twitter = {
 				...metaData.twitter,
-				image: metaData.url
-					? `${BASE_URL}${metaData.url}`
-					: BASE_URL,
+				image: metaData.url ? `${BASE_URL}${metaData.url}` : BASE_URL,
 				'image:alt': metaData.image.alt || metaData.title,
 			};
 		}
