@@ -1,7 +1,12 @@
+import { environment } from '$environment/environment';
 import fetch from 'node-fetch';
 
-const GITHUB_USER_ENDPOINT = 'https://api.github.com/users/navneetsharmaui';
-const GITHUB_USER_REPO_ENDPOINT = 'https://api.github.com/users/navneetsharmaui/repos?per_page=100';
+const GITHUB_USER_ENDPOINT = environment.gitHubConfig.GITHUB_USER_ENDPOINT
+	? `${environment.gitHubConfig.GITHUB_USER_ENDPOINT.trim().slice()}`
+	: 'https://api.github.com/users/navneetsharmaui';
+const GITHUB_USER_REPO_ENDPOINT = environment.gitHubConfig.GITHUB_USER_REPO_ENDPOINT
+	? `${environment.gitHubConfig.GITHUB_USER_REPO_ENDPOINT.trim().slice()}?per_page=100`
+	: 'https://api.github.com/users/navneetsharmaui/repos?per_page=100';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ query }) {

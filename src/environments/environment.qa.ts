@@ -44,5 +44,8 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 	},
 	gitHubConfig: {
 		GITHUB_BLOG_EDIT_URL: import.meta.env.VITE_GITHUB_BLOG_EDIT_URL,
+		GITHUB_API_URL: import.meta.env.VITE_GITHUB_API_URL,
+		GITHUB_USER_ENDPOINT: import.meta.env.VITE_GITHUB_USER_ENDPOINT,
+		GITHUB_USER_REPO_ENDPOINT: import.meta.env.VITE_GITHUB_USER_REPO_ENDPOINT,
 	},
 };

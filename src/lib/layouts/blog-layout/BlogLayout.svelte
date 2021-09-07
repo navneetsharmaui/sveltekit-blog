@@ -20,7 +20,7 @@
 	export let blog!: IBlogLayout;
 
 	// Local Methods
-	const editUrl = (slug: string): string => `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.mdsvex`;
+	const editUrl = (slug: string): string => `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}/index.md`;
 	const discussUrl = (slug: string): string =>
 		`${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
 			`https://navneetsharma.io/blog/${slug}`,
