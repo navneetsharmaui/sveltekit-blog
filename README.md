@@ -33,7 +33,7 @@ The project has the ***SSR (Server Side Rendering)*** setup. These template is e
 
 ## :hammer: Project Setup
 
-1. `npx degit navneetsharmaui/sveltekit-starter my-app` or Clone this repository.
+1. `npx degit navneetsharmaui/sveltekit-blog my-app` or Clone this repository.
 2. `npm install` or `yarn install` or `pnpm install`.
 3. `npm run dev` or `yarn run dev` or `pnpm run dev`.
 4. `npm run build:static:ssr` or `yarn run build:static:ssr` or `pnpm run build:static:ssr`.
