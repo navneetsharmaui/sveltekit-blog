@@ -56,12 +56,12 @@
 	import { nowPlayingSong } from '$stores';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import { onDestroy, onMount } from 'svelte';
+	import { getNowPlayingSong } from './_now-playing';
 
 	let clearSetTimeout: any;
 
 	const getCurrentlyPlayingSong = (): void => {
-		fetch(`/api/now-playing.json`)
-			.then((res) => res.json())
+		getNowPlayingSong()
 			.then((response) => nowPlayingSong.set(response));
 		clearSetTimeout = setTimeout(getCurrentlyPlayingSong, 120000);
 	};
