@@ -1,11 +1,11 @@
 <script lang="ts">
 	// Start: Local Imports
 	// Components
+	import TagsContainer from '$ui/components/tags-container/TagsContainer.svelte';
 
 	// Models
 	import type { IBlog } from '$models/interfaces/iblog.interface';
 
-	import { convertToSlug } from '$utils/convert-to-slug';
 	// End: Local Imports
 
 	// Start: Exported Properties
@@ -31,25 +31,7 @@
 				</p> -->
 		</div>
 		<p class="text-gray-600 dark:text-gray-400">{blog.description}</p>
-		{#if blog.tags.length > 0}
-			<div class="flex flex-row flex-wrap w-full mt-4 items-center">
-				{#each blog.tags as tag, index (tag)}
-					<a
-						sveltekit:prefetch
-						href="{`/blog/tags/${convertToSlug(tag)}`}"
-						aria-label="{tag}"
-						class="text-xs text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
-					>
-						{tag.toUpperCase()}
-					</a>
-					{#if index !== blog.tags.length - 1}
-						<p class="mr-2 ml-2 text-gray-500 dark:text-gray-50">
-							{` • `}
-						</p>
-					{/if}
-				{/each}
-			</div>
-		{/if}
+		<TagsContainer tags="{blog.tags}" />
 	</div>
 	<!-- <hr class="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" /> -->
 {/if}
