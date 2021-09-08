@@ -11,7 +11,7 @@ const renderXmlRssFeed = (
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title><![CDATA[Markus Hatvan - On your side for your site]]></title>
+    <title><![CDATA[Sveltekit Blogger - On your side for your site]]></title>
     <description><![CDATA[Personal website and blog written from scratch with SvelteKit and TailwindCSS.]]></description>
     <link>${siteUrl}</link>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
