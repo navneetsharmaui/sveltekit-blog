@@ -56,9 +56,7 @@
 		"src/**/**/**/*.ts",
 		"src/**/*.svelte",
 		"scripts/*.ts",
-		"./jest-setup.ts",
-		"scripts/js/sitemap.ts",
-		"scripts/js/environment.setup.ts"
+		"scripts/js/*.ts"
 	],
 	"exclude": [
 		"node_modules/*",
