@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // this action (https://svelte.dev/tutorial/actions) allows us to
 // progressively enhance a <form> that already works without JS
 export function enhance(

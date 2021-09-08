@@ -95,6 +95,7 @@ const config = {
 				},
 			},
 			plugins: [imagetools({ force: true })],
+			envPrefix: ['VITE_', 'SVELTEKIT_BLOG_'],
 		}),
 	},
 };

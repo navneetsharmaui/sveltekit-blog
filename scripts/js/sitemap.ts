@@ -57,7 +57,7 @@ const root = workspace['projects'][project]['root'];
 const routes = workspace['projects'][project]['routes'];
 const assets = workspace['projects'][project]['assets'];
 
-const URL = process.env.VITE_BASE_URL;
+const URL = process.env.SVELTEKIT_BLOG_BASE_URL;
 const baseURL = URL ? URL : 'https://sveltekit-blog-ashy.vercel.app';
 const pages = [''];
 
