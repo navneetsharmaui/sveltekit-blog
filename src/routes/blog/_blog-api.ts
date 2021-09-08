@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import type { IBlog } from '$models/interfaces/iblog.interface';
 import { convertToSlug } from '$utils/convert-to-slug';
 import fs from 'fs';

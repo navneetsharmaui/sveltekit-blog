@@ -41,7 +41,7 @@
 	},
 	"scripts": {
 		"prepare": "husky install",
-		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && rimraf .netlify && npm run copy:content",
+		"prebuild": "rimraf .svelte-kit && rimraf build && rimraf .vercel_build_output && rimraf .netlify && npm run copy:content && npm run build:sitemap && npm run build:rss",
 		"pre-commit": "npm run banners && git add ./contents/blogs/**/banner.jpg && lint-staged",
 		"check-env": "node --loader ts-node/esm scripts/js/check-env.ts",
 		"spotify": "node --loader ts-node/esm scripts/js/spotify-access.ts",
@@ -56,6 +56,8 @@
 		"dev:host": "npm run check-env && npm run add-css && npm run dev:sveltekit:host",
 		"dev:open": "npm run dev --open",
 		"dev:host:open": "npm run dev --open --host",
+		"build:sitemap": "node --loader ts-node/esm scripts/js/sitemap.ts --env-file=prod --project=sveltekit-blog",
+		"build:rss": "node --loader ts-node/esm scripts/js/rss.ts --env-file=prod --project=sveltekit-blog",
 		"build:env:prod": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=prod --project=sveltekit-blog --arhitect-type=build --configurations=prod",
 		"build:env:dev": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=dev --project=sveltekit-blog --arhitect-type=build --configurations=dev",
 		"build:env:qa": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=qa --project=sveltekit-blog --arhitect-type=build --configurations=qa",

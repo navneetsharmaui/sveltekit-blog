@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import fs from 'fs';
 import frontMatter from 'front-matter';
 
@@ -17,12 +16,6 @@ interface IBlog {
 	modified?: string;
 	readingTime: string;
 }
-
-const convertToSlug = (value: string): string =>
-	value
-		.toLowerCase()
-		.replace(/[^\w ]+/g, '')
-		.replace(/ +/g, '-');
 
 const blogPath = './contents/blogs';
 
@@ -75,66 +68,39 @@ const workspace = JSON.parse(
 );
 
 const root = workspace['projects'][project]['root'];
-const routes = workspace['projects'][project]['routes'];
 const assets = workspace['projects'][project]['assets'];
 
 const URL = process.env.SVELTEKIT_BLOG_BASE_URL;
 const BASE_URL = URL ? URL : 'https://sveltekit-blog-starter.vercel.app';
-const pages = [''];
 
-fs.readdirSync(`${root}/${routes}`).forEach((file) => {
-	file = file.split('.')[0];
-
-	if (file.charAt(0) !== '_' && file !== 'sitemap' && file !== 'index' && file !== 'api' && file !== 'rss') {
-		pages.push(file);
-	}
-});
-
-const generateTags = () => {
-	let listWithDuplicatetags: string[] = [];
-
-	modifiedBlogs
-		.map((post) => post.metadata)
-		.forEach((blog: IBlog) => {
-			listWithDuplicatetags =
-				listWithDuplicatetags.length === 0 ? [...blog.tags] : [...listWithDuplicatetags, ...blog.tags];
-		});
-
-	const tags = [...new Set(listWithDuplicatetags)];
-
-	return tags
-		.map(
-			(uniqueCategory: string) => `
-      <url><loc>${BASE_URL}/bog/tags/${convertToSlug(uniqueCategory)}/</loc><priority>0.85</priority></url>
-        `,
-		)
-		.join('\n');
-};
-
-const render = (pages: string[], posts: { metadata: IBlog }[]) => `<?xml version="1.0" encoding="UTF-8" ?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  ${pages
-		.map(
-			(page: string) => `
-    <url><loc>${BASE_URL}/${page ? `${page}/` : ''}</loc><priority>0.85</priority></url>
-  `,
-		)
-		.join('\n')}
-  ${posts
+const renderXmlRssFeed = (blogs: { metadata: IBlog }[]): string => `<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title><![CDATA[Navneet Sharma - On your side for your site]]></title>
+    <description><![CDATA[Personal website and blog written from scratch with SvelteKit and TailwindCSS.]]></description>
+    <link>${BASE_URL}</link>
+    <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
+    <generator>SvelteKit</generator>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    ${blogs
 		.map((post) => post.metadata)
 		.map(
 			(value: IBlog) => `
-    <url>
-      <loc>${BASE_URL}/blog/${value.slug}/</loc>
-      <priority>0.69</priority>
-    </url>
-  `,
+    <item>
+      <title><![CDATA[${value.title}]]></title>
+      <description><![CDATA[${value.description}]]></description>
+      <link>${BASE_URL}/blog/${value.slug}</link>
+      <guid isPermaLink="false">${BASE_URL}/blog/${value.slug}</guid>
+      <pubDate>${new Date(value.date).toUTCString()}</pubDate>
+    </item>
+    `,
 		)
 		.join('\n')}
-    ${generateTags()}
-</urlset>
-`;
+  </channel>
+</rss>`;
 
-const sitemap = render(pages, modifiedBlogs);
+const rss = renderXmlRssFeed(modifiedBlogs);
 
-writeToFile(`${root}/${assets}/sitemap.xml`, sitemap);
+writeToFile(`${root}/${assets}/rss.xml`, rss);

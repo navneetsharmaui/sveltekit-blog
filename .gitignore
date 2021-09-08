@@ -16,6 +16,7 @@ static/*.css
 # Ignore the xml
 static/sitemap.xml
 static/feed.xml
+static/rss.xml
 
 static/images/blogs
 static/images/snippets
