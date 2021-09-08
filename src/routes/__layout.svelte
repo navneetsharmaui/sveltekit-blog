@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	/**
+	 * @type {import('@sveltejs/kit').Load}
+	 */
+	export async function load({ fetch }) {
+		try {
+			await fetch('/sitemap.xml');
+			await fetch('/rss.xml');
+			return true;
+		} catch (error) {
+			console.error(error);
+		}
+	}
+</script>
+
 <script lang="ts">
 	// Start: Local Imports
 
