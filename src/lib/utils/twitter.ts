@@ -2,7 +2,7 @@ import querystring from 'querystring';
 
 import { environment } from '$environment/environment';
 
-export const getTweets = async (ids) => {
+export const getTweets = async (ids: string[]): Promise<unknown> => {
 	if (ids.length === 0) {
 		return [];
 	}

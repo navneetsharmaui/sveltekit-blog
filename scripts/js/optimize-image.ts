@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { writeFileSync } from 'fs';
 import { ImagePool } from '@squoosh/lib';
 

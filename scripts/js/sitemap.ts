@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import fs from 'fs';
-import dotenv from 'dotenv';
 
 const pathToWorkspaceJSON = './sveltekit-space.json';
 

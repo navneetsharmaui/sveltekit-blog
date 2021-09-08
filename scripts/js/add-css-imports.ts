@@ -19,7 +19,6 @@ try {
 		if (isImportPresent) {
 			console.log('Import already present');
 		} else {
-			const commentIndex = layout.indexOf('// Start: External Imports 	');
 			const updatedLayout = layout.replace(
 				'// Start: External Imports',
 				`// Start: External Imports

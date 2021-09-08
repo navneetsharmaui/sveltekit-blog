@@ -15,7 +15,6 @@ try {
 			encoding: 'utf8',
 		});
 		const writeToFile = (filePath: string, data): void => fs.writeFileSync(filePath, data);
-		const importIndex = layout.indexOf("import '../styles/tailwind.postcss';");
 		const updatedLayout = layout.replace("import '../styles/tailwind.postcss';", '');
 		writeToFile(pathToRootLayout, updatedLayout);
 	}

@@ -8,6 +8,6 @@ const session = cookieSession({
 	maxAge: 24 * 60 * 60 * 1000,
 });
 
-export default function wrapper(req, res) {
+export default function wrapper(req: unknown, res: unknown): void {
 	session(req, res);
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import querystring from 'querystring';
 
 import fetch from 'node-fetch';

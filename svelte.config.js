@@ -4,7 +4,6 @@
 // command env properties
 const hasAdapter = process.env.ADAPTER;
 const adapt = hasAdapter ? hasAdapter : 'node';
-const isSSR = process.env.SSR ? true : false;
 const isAMP = process.env.AMP ? true : false;
 
 // Imports
@@ -17,7 +16,7 @@ import preprocess from 'svelte-preprocess';
 import { resolve } from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { createRequire } from 'module';
+// import { createRequire } from 'module';
 
 // Adapters
 import staticAdapter from '@sveltejs/adapter-static';
@@ -26,11 +25,11 @@ import netlifyAdapter from '@sveltejs/adapter-netlify';
 import vercelAdapter from '@sveltejs/adapter-vercel';
 
 // Custom require function as replacement for the require from the commonJS in ES Module
-const customRequire = createRequire(import.meta.url); // jshint ignore:line
+// const customRequire = createRequire(import.meta.url); // jshint ignore:line
 
 // Custom __dirname as replacement for the __dirname from the commonJS in ES Module
 const __dirname = dirname(fileURLToPath(import.meta.url)); // jshint ignore:line
-const pkg = customRequire('./package.json');
+// const pkg = customRequire('./package.json');
 
 const options = JSON.stringify(process.env.OPTIONS || '{}');
 

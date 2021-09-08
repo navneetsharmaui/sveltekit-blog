@@ -10,10 +10,10 @@
 	 * @type {IHeaderNavLink}
 	 */
 	export let navLinks!: IHeaderNavLink[];
-	export let logoImage: string = '';
-	export let title: string = '';
-	export let useTitleAndLogo: boolean = false;
-	export let useThemeModeButton: boolean = true;
+	export let logoImage = '';
+	export let title = '';
+	export let useTitleAndLogo = false;
+	export let useThemeModeButton = true;
 
 	// Local Properties
 	let dark = false;

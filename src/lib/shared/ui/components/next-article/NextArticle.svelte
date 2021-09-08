@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Exports
-	export let previousHref: string = '';
+	export let previousHref = '';
 
-	export let nextHref: string = '';
+	export let nextHref = '';
 </script>
 
 <div class="flex flex-wrap mb-10 pt-2 pb-2">

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { slugFromPath } from '$utils/slug-from-path';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -20,7 +21,7 @@ export async function get({ query }) {
 		};
 	}
 
-	for (let [path, resolver] of Object.entries(modules)) {
+	for (const [path, resolver] of Object.entries(modules)) {
 		const slug = slugFromPath(path);
 		const promise = resolver().then((post) => {
 			return { slug, ...post.metadata };

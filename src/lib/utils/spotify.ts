@@ -23,7 +23,7 @@ const getAccessToken = async () => {
 	}).then((res) => res.json());
 };
 
-export const getNowPlaying = async () => {
+export const getNowPlaying = async (): Promise<Response> => {
 	const { access_token } = await getAccessToken();
 
 	return fetch(`${NOW_PLAYING_ENDPOINT}`, {
@@ -33,7 +33,7 @@ export const getNowPlaying = async () => {
 	});
 };
 
-export const getTopTracks = async () => {
+export const getTopTracks = async (): Promise<Response> => {
 	const { access_token } = await getAccessToken();
 
 	return fetch(`${TOP_TRACKS_ENDPOINT}`, {
