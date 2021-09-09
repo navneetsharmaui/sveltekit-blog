@@ -17,7 +17,7 @@ interface IBlog {
 	readingTime: string;
 }
 
-const blogPath = './contents/blogs';
+const blogPath = './src/routes/blog';
 
 const posts = fs
 	.readdirSync(`${blogPath}`)

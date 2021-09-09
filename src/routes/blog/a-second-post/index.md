@@ -1,17 +1,13 @@
 ---
+layout: blog
 title: "A second blog post"
 slug: "a-second-post"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Sveltekit Blogger"
-date: "2021-09-06"
+date: "2021-09-08"
 banner: "/images/banner.jpg"
 published: true
-tags:
-- Svelte
-- JavaScript
-- Typescript
-- web development
-- Programming
+tags: ["Svelte", "JavaScript", "Typescript", "web development", "Programming"]
 ---
 
 ## Lorem ipsum
@@ -19,6 +15,12 @@ tags:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat, lacus et accumsan lobortis, justo sapien mattis felis, et lacinia ante libero ut augue. Etiam nec odio at erat commodo scelerisque. Phasellus convallis, mauris a tincidunt convallis, leo velit efficitur arcu, vitae rutrum justo dolor at nisl. Donec ut scelerisque ligula, eu ultrices libero. Quisque tincidunt ex sed scelerisque vulputate. Phasellus eget urna dui. Vestibulum fermentum dolor non dolor aliquam maximus. Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh. Donec maximus mollis mauris quis viverra. Etiam malesuada nisi sapien, et ornare velit venenatis id. Curabitur sollicitudin ipsum id nisi convallis placerat.
 
 Etiam commodo vulputate feugiat. Suspendisse accumsan varius maximus. Etiam vitae odio est. Nulla lobortis sit amet lacus non pellentesque. Mauris finibus mattis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras fringilla mattis enim et iaculis. Donec nec erat a massa egestas varius. Vestibulum et accumsan risus. Nulla felis ligula, vehicula sit amet augue vel, porttitor vestibulum ante. Nullam faucibus sed tortor eu lobortis. Ut facilisis eget leo eu lacinia. Etiam luctus scelerisque urna, quis vestibulum tellus scelerisque eu. Donec sit amet lectus sit amet arcu ullamcorper sollicitudin.
+
+```jsx
+const snapshot = await db.ref('views').once('value');
+const views = snapshot.val();
+const allViews = Object.values(views).reduce((total, value) => total + value);
+```
 
 ## Phasellus
 

@@ -14,8 +14,6 @@
 	 */
 	export let blog!: IBlog;
 	// End: Exported Properties
-
-	// TODO
 </script>
 
 {#if blog && blog?.slug}

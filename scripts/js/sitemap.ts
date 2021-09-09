@@ -24,7 +24,7 @@ const convertToSlug = (value: string): string =>
 		.replace(/[^\w ]+/g, '')
 		.replace(/ +/g, '-');
 
-const blogPath = './contents/blogs';
+const blogPath = './src/routes/blog';
 
 const posts = fs
 	.readdirSync(`${blogPath}`)

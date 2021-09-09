@@ -4,13 +4,14 @@ import path from 'path';
 import { execSync, exec } from 'child_process';
 import { chromium } from 'playwright';
 
-const content = './contents/blogs';
+const content = './src/routes/blog';
+const bannerStorePath = './static/images/blogs';
 
 (async () => {
 	const generateBanners = [];
 	const posts = fs.readdirSync(content).filter((elem) => !elem.startsWith('.') && !elem.includes('.'));
 	for (const post of posts) {
-		const bannerPath = path.join(content, post, 'images', 'banner.jpg');
+		const bannerPath = path.join(bannerStorePath, post, 'banner.jpg');
 		const bannerExists = fs.existsSync(bannerPath);
 
 		if (!bannerExists) {

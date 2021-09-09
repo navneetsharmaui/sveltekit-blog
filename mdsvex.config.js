@@ -3,12 +3,13 @@
 import remarkGithub from 'remark-github';
 import remarkAbbr from 'remark-abbr';
 import remarkGfm from 'remark-gfm';
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
-import rehypeHighlight from 'rehype-highlight';
+
 import slug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypePrism from 'rehype-prism-plus';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 
 const config = {
 	extensions: ['.svelte.md', '.md', '.svx'],
@@ -29,16 +30,26 @@ const config = {
 	],
 	rehypePlugins: [
 		slug,
+		rehypePrism,
+		rehypeHighlight,
+		rehypeCodeTitles,
+		rehypeAccessibleEmojis,
 		[
 			rehypeAutolinkHeadings,
 			{
 				behavior: 'wrap',
+				properties: {
+					class: 'anchor',
+				},
 			},
 		],
-		rehypePrism,
-		rehypeHighlight,
-		rehypeAccessibleEmojis,
 	],
+	layout: {
+		blog: './src/lib/layouts/blog-layout/BlogLayout.svelte',
+		snippet: './src/lib/layouts/newsletter-layout/NewsLetterLayout.svelte',
+		newsletter: './src/lib/layouts/newsletter-layout/NewsLetterLayout.svelte',
+		_: './src/lib/layouts/blog-layout/BlogLayout.svelte',
+	},
 };
 
 export default config;

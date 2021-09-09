@@ -6,7 +6,7 @@
 
 <a
 	sveltekit:prefetch
-	href="{`/blog/tags/${convertToSlug(tag)}`}"
+	href="{`/tags/${convertToSlug(tag)}`}"
 	aria-label="{tag}"
 	class="text-xs text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
 >

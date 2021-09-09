@@ -58,7 +58,7 @@
 	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white"> Blog </h1>
 	<p class="text-gray-600 dark:text-gray-400 mb-4">
 		There are {blogs.length} articles on this site. Use
-		<a sveltekit:prefetch href="/blog/tags" aria-label="tags" class="text-blue-500 hover:text-blue-700 transition"
+		<a sveltekit:prefetch href="/tags" aria-label="tags" class="text-blue-500 hover:text-blue-700 transition"
 			>tags</a
 		>
 		to get articles based on different tags. Use the search below to filter by title.

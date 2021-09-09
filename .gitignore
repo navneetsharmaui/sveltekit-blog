@@ -18,9 +18,6 @@ static/sitemap.xml
 static/feed.xml
 static/rss.xml
 
-static/images/blogs
-static/images/snippets
-
 # Storybook files #
 ###################
 storybook-static

@@ -3,7 +3,7 @@ import { slugFromPath } from '$utils/slug-from-path';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function get({ query }) {
-	const modules = import.meta.glob('/contents/blogs/**/index.{md,svx,svelte.md}');
+	const modules = import.meta.glob('./**/index.{md,svx,svelte.md}');
 
 	const postPromises = [];
 	const limit = Number(query.get('limit') ?? Infinity);

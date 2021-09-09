@@ -1,17 +1,13 @@
 ---
-title: "Yet another article"
-slug: "yet-another-blog-post"
+layout: blog
+title: "Welcome to my blog!"
+slug: "welcome-to-my-blog"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Sveltekit Blogger"
-date: "2021-09-06"
+date: "2021-09-01"
 banner: "/images/banner.jpg"
 published: true
-tags:
-- Angular
-- Typescript
-- web development
-- Programming
-- React
+tags: ["React", "JavaScript", "web development", "Programming"]
 ---
 
 ## Lorem ipsum

@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { parseISO, format } from 'date-fns';
+	import reading from 'reading-time';
+
+	import { onMount } from 'svelte';
 
 	// Environment
 	import { environment } from '$environment/environment';
 
-	// Components
-	import type { IBlogLayout } from '$models/interfaces/iblog-layout.interface';
+	// Models
 
 	// Components
+	import HeadTags from '$components/head-tags/HeadTags.svelte';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import ShareButtons from '$ui/components/share-buttons/ShareButtons.svelte';
 	import NextArticle from '$ui/components/next-article/NextArticle.svelte';
@@ -17,19 +20,80 @@
 
 	// Exports
 
-	export let blog!: IBlogLayout;
+	export let title = '';
+	export let slug = '';
+	export let description = '';
+	export let tags = [];
+	export let date = '';
+	export let author = '';
+	export let previousArticleLink = '';
+	export let nextArticleLink = '';
+
+	let readingTimeDuration = '';
+
+	const editUrl = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.md`;
+	const discussUrl = `${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
+		`https://navneetsharma.in/blog/${slug}`,
+	)}`;
+
+	/**
+	 * @type {IMetaTagProperties}
+	 */
+	let metaData = {
+		title: `${title} | Sveltekit`,
+		description: `${description}`,
+		url: `/blog/${slug}`,
+		keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...tags],
+		searchUrl: `/blog/${slug}`,
+		image: `/images/blogs/${slug}/banner.jpg`,
+		twitter: {
+			label1: 'Written by',
+			data1: author,
+			label2: 'Published on',
+			data2: format(parseISO(date), 'MMMM dd, yyyy'),
+		},
+		openGraph: {
+			type: 'article',
+		},
+	};
+
+	// Start: Reactive properties
+	$: {
+		if (title && slug) {
+			metaData = {
+				title: `${title} | Sveltekit`,
+				url: `/blog/${slug}`,
+				keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...tags],
+				searchUrl: `/blog/${slug}`,
+				description: `${description}`,
+				image: `/images/blogs/${slug}/banner.jpg`,
+				twitter: {
+					label1: 'Written by',
+					data1: author,
+					label2: 'Published on',
+					data2: format(parseISO(date), 'MMMM dd, yyyy'),
+				},
+				openGraph: {
+					type: 'article',
+				},
+			};
+		}
+	}
+	// End: Reactive properties
 
 	// Local Methods
-	const editUrl = (slug: string): string => `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.mdsvex`;
-	const discussUrl = (slug: string): string =>
-		`${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
-			`https://navneetsharma.in/blog/${slug}`,
-		)}`;
+	onMount(() => {
+		readingTimeDuration = reading(`${document.getElementById('blog-conent').textContent}`).text;
+	});
 </script>
+
+<!-- Start: Header Tag -->
+<HeadTags metaData="{metaData}" />
+<!-- End: Header Tag -->
 
 <article class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
 	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-		{blog.metadata.title}
+		{title}
 	</h1>
 	<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
 		<div class="flex items-center">
@@ -39,31 +103,31 @@
 				class="rounded-full w-7 h-7"
 			/>
 			<p class="text-sm text-gray-700 dark:text-gray-300 ml-2">
-				{blog.metadata.author}
+				{author}
 				{' / '}
-				{format(parseISO(blog.metadata.date), 'MMMM dd, yyyy')}
+				{format(parseISO(date), 'MMMM dd, yyyy')}
 			</p>
 		</div>
 		<p class="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
-			{blog.metadata.readingTime}
+			{readingTimeDuration}
 		</p>
 	</div>
-	<div class="prose dark:prose-dark max-w-none w-full">
+	<div class="prose dark:prose-dark max-w-none w-full" id="blog-conent">
 		<slot />
 	</div>
 	<div class="mt-8">
-		{#if blog.metadata.tags.length > 0}
+		{#if tags.length > 0}
 			<div class="flex flex-row flex-wrap w-full mt-4 items-center">
-				{#each blog.metadata.tags as tag, index (tag)}
+				{#each tags as tag, index (tag)}
 					<a
 						sveltekit:prefetch
-						href="{`/blog/tags/${convertToSlug(tag)}`}"
+						href="{`/tags/${convertToSlug(tag)}`}"
 						aria-label="{tag}"
 						class="text-xs text-gray-400 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
 					>
 						{tag.toUpperCase()}
 					</a>
-					{#if index !== blog.metadata.tags.length - 1}
+					{#if index !== tags.length - 1}
 						<p class="mr-2 ml-2 text-gray-500 dark:text-gray-50">
 							{` • `}
 						</p>
@@ -74,30 +138,28 @@
 	</div>
 	<div class="mt-8">
 		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the article on'}</p>
-		<ShareButtons
-			title="{blog.metadata.title}"
-			description="{blog.metadata.description}"
-			url="{`${environment.launchURL}/blog/${blog.metadata.slug}`}"
-		/>
+		<ShareButtons title="{title}" description="{description}" url="{`${environment.launchURL}/blog/${slug}`}" />
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
 		<ExternalLink
-			href="{discussUrl(blog.metadata.slug)}"
-			ariaLabel="{blog.metadata.title}"
+			href="{discussUrl}"
+			ariaLabel="{title}"
 			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
 		>
 			{'Discuss on Twitter'}
 		</ExternalLink>
 		{` • `}
 		<ExternalLink
-			href="{editUrl(blog.metadata.slug)}"
-			ariaLabel="{blog.metadata.title}"
+			href="{editUrl}"
+			ariaLabel="{title}"
 			cssClasses="{'text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500'}"
 		>
 			{'Edit on GitHub'}
 		</ExternalLink>
 	</div>
-	<div class="mt-8 w-full">
-		<NextArticle previousHref="{blog.previousArticleLink}" nextHref="{blog.nextArticleLink}" />
-	</div>
+	{#if previousArticleLink || nextArticleLink}
+		<div class="mt-8 w-full">
+			<NextArticle previousHref="{previousArticleLink}" nextHref="{nextArticleLink}" />
+		</div>
+	{/if}
 </article>

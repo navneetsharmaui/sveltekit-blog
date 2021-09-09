@@ -42,9 +42,9 @@
 		title: `${convertToSentence(tag)} | Sveltekit`,
 		description:
 			'Sveltekit starter project created with sveltekit, typescript, tailwindcss, postcss, husky, and storybook. The project has the structure set up for the scaleable project. (sveltekit, typescript, tailwindcss, postcss, husky, Storybook).',
-		url: `/blog/tags/${tag}`,
+		url: `/tags/${tag}`,
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter users', tag],
-		searchUrl: `/blog/tags/${tag}`,
+		searchUrl: `/tags/${tag}`,
 	};
 
 	let searchValue = '';

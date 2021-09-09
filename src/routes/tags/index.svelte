@@ -41,9 +41,9 @@
 	$: metaData = {
 		title: 'Tags | Sveltekit Blog',
 		description: 'Tags page of Sveltekit blog starter project',
-		url: '/blog/tags',
+		url: '/tags',
 		keywords: ['sveltekit', 'sveltekit starter', 'sveltekit starter tags', 'svelte starter tags', ...tags],
-		searchUrl: '/blog/tags',
+		searchUrl: '/tags',
 	};
 
 	// Local Methods
@@ -64,7 +64,7 @@
 		{#each tags as tag, index (tag)}
 			<a
 				sveltekit:prefetch
-				href="{`/blog/tags/${convertToSlug(tag)}`}"
+				href="{`/tags/${convertToSlug(tag)}`}"
 				aria-label="{tag}"
 				class="text-xs text-gray-400 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-500"
 			>
