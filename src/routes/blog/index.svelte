@@ -89,9 +89,9 @@
 	<!-- End: Search blogs -->
 	<!-- Start: Most Recent Blogs Section -->
 	{#if !searchValue}
-		<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
+		<h2 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
 			Most Recent
-		</h3>
+		</h2>
 		{#each mostRecentBlogs as blog, index (blog.slug)}
 			<BlogPost blog="{blog}" />
 		{/each}
@@ -99,7 +99,7 @@
 	<!-- End: Most Recent Blogs Section -->
 
 	<!-- Start: All the blogs section -->
-	<h3 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white"> All Posts </h3>
+	<h2 class="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white"> All Posts </h2>
 	{#if filteredBlogPosts.length === 0}
 		<p class="text-gray-600 dark:text-gray-400 mb-4"> No posts found. </p>
 	{:else}
