@@ -53,6 +53,8 @@
 </style>
 
 <script lang="ts">
+	import { blur } from 'svelte/transition';
+
 	import { nowPlayingSong } from '$stores';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import { onDestroy, onMount } from 'svelte';
@@ -82,32 +84,38 @@
 	</svg>
 
 	<div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
-		<div class="inline-flex flex-col sm:flex-row w-full max-w-full truncate">
-			{#if $nowPlayingSong?.songUrl}
-				<ExternalLink
-					href="{$nowPlayingSong.songUrl}"
-					cssClasses="{'text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate'}"
-					ariaLabel="{$nowPlayingSong.title}"
-				>
-					{$nowPlayingSong.title}
-				</ExternalLink>
-			{:else}
-				<p class="text-gray-800 dark:text-gray-200 font-medium"> Not Playing </p>
-			{/if}
+		{#key $nowPlayingSong?.songUrl}
+			<div
+				in:blur="{{ delay: 250, duration: 300 }}"
+				out:blur="{{ delay: 250, duration: 300 }}"
+				class="inline-flex flex-col sm:flex-row w-full max-w-full truncate"
+			>
+				{#if $nowPlayingSong?.songUrl}
+					<ExternalLink
+						href="{$nowPlayingSong.songUrl}"
+						cssClasses="{'text-gray-800 dark:text-gray-200 font-medium  max-w-max truncate'}"
+						ariaLabel="{$nowPlayingSong.title}"
+					>
+						{$nowPlayingSong.title}
+					</ExternalLink>
+				{:else}
+					<p class="text-gray-800 dark:text-gray-200 font-medium"> Not Playing </p>
+				{/if}
 
-			<span class="mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
-				{' – '}
-			</span>
-			<p class="text-gray-500 dark:text-gray-300 max-w-max truncate">
-				{$nowPlayingSong?.artist ?? 'Spotify'}
-			</p>
-			{#if $nowPlayingSong.isPlaying}
-				<div class="ml-2 flex flex-row justify-center items-center playing">
-					{#each [1, 2, 3, 4] as num, index (num)}
-						<span class="crest"></span>
-					{/each}
-				</div>
-			{/if}
-		</div>
+				<span class="mx-2 text-gray-500 dark:text-gray-300 hidden sm:block">
+					{' – '}
+				</span>
+				<p class="text-gray-500 dark:text-gray-300 max-w-max truncate">
+					{$nowPlayingSong?.artist ?? 'Spotify'}
+				</p>
+				{#if $nowPlayingSong.isPlaying}
+					<div class="ml-2 flex flex-row justify-center items-center playing">
+						{#each [1, 2, 3, 4] as num, index (num)}
+							<span class="crest"></span>
+						{/each}
+					</div>
+				{/if}
+			</div>
+		{/key}
 	</div>
 </div>
