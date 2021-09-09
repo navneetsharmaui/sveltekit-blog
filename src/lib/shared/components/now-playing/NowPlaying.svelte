@@ -55,7 +55,7 @@
 <script lang="ts">
 	import { blur } from 'svelte/transition';
 
-	import { nowPlayingSong } from '$stores';
+	import { nowPlayingSong } from '$stores/spotify-store';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import { onDestroy, onMount } from 'svelte';
 	import { getNowPlayingSong } from './_now-playing';

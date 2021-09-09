@@ -29,6 +29,7 @@
 			"$app/*": [".svelte-kit/dev/runtime/app/*", ".svelte-kit/build/runtime/app/*"],
 			"$lib/*": ["src/lib/*"],
 			"$stores": ["src/stores/index.ts"],
+			"$stores/*": ["src/stores/*"],
 			"$core": ["src/lib/core/index.ts"],
 			"$core/*": ["src/lib/core/*"],
 			"$utils": ["src/lib/utils/index.ts"],
