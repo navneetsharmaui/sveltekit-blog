@@ -6,10 +6,10 @@
 
 	.crest {
 		width: 3px;
-		height: 3px;
+		height: 20px;
 		margin-right: 3px;
 		background: #65696d;
-		border-radius: 1.5px;
+		border-radius: 2px;
 
 		&:hover {
 			background: #19af55;
@@ -37,14 +37,24 @@
 		&:nth-child(5) {
 			animation: playing 850ms infinite ease;
 		}
+
+		&:nth-child(6) {
+			animation: playing 650ms infinite ease;
+		}
 	}
 
 	@keyframes playing {
 		0% {
 			height: 3px;
 		}
+		25% {
+			height: 10px;
+		}
 		50% {
-			height: 12px;
+			height: 15px;
+		}
+		75% {
+			height: 17px;
 		}
 		to {
 			height: 3px;
@@ -110,7 +120,7 @@
 				</p>
 				{#if $nowPlayingSong.isPlaying}
 					<div class="ml-2 flex flex-row justify-center items-center playing">
-						{#each [1, 2, 3, 4] as num, index (num)}
+						{#each [1, 2, 3, 4, 5, 6] as num, index (num)}
 							<span class="crest"></span>
 						{/each}
 					</div>
