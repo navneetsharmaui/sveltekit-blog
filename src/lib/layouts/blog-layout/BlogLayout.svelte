@@ -32,7 +32,7 @@
 
 	let readingTimeDuration = '';
 
-	const editUrl = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.md`;
+	const editUrl = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}/index.md`;
 	const discussUrl = `${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
 		`https://navneetsharma.in/blog/${slug}`,
 	)}`;
