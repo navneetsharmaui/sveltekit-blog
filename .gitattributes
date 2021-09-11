@@ -6,3 +6,46 @@
 # Remove Yarn 2 from linguist
 .yarn/* linguist-vendored
 .pnp.js linguist-vendored
+
+* text=auto eol=lf
+
+# ===
+# Binary Files (don't diff, don't fix line endings)
+# ===
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.tiff binary
+
+# Fonts
+*.oft binary
+*.ttf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+
+# Videos
+*.mov binary
+*.mp4 binary
+*.webm binary
+*.ogg binary
+*.mpg binary
+*.3gp binary
+*.avi binary
+*.wmv binary
+*.flv binary
+*.asf binary
+
+# Audio
+*.mp3 binary
+*.wav binary
+*.flac binary
+
+# Compressed
+*.gz binary
+*.zip binary
+*.7z binary
