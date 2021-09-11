@@ -13,11 +13,8 @@
 	import HeadTags from '$components/head-tags/HeadTags.svelte';
 	import ExternalLink from '$ui/components/external-link/ExternalLink.svelte';
 	import ShareButtons from '$ui/components/share-buttons/ShareButtons.svelte';
-	import NextArticle from '$ui/components/next-article/NextArticle.svelte';
-	import TagsContainer from '$ui/components/tags-container/TagsContainer.svelte';
 
 	// Utils
-	import { convertToSlug } from '$utils/convert-to-slug';
 
 	// Exports
 
@@ -27,14 +24,13 @@
 	export let tags = [];
 	export let date = '';
 	export let author = '';
-	export let previousArticleLink = '';
-	export let nextArticleLink = '';
+	export let logo = '';
 
 	let readingTimeDuration = '';
 
-	const editUrl = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.md`;
+	const editUrl = `${environment.gitHubConfig.GITHUB_SNIPPETS_EDIT_URL}/${slug}/index.md`;
 	const discussUrl = `${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
-		`https://navneetsharma.in/blog/${slug}`,
+		`https://sveltekit-blog-starter.vercel.app/snippets/${slug}`,
 	)}`;
 
 	/**
@@ -43,10 +39,10 @@
 	let metaData = {
 		title: `${title} | Sveltekit`,
 		description: `${description}`,
-		url: `/blog/${slug}`,
+		url: `/snippets/${slug}`,
 		keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...tags],
 		searchUrl: `/blog/${slug}`,
-		image: `/images/blogs/${slug}/banner.jpg`,
+		image: `/images/snippets/${slug}/banner.jpg`,
 		twitter: {
 			label1: 'Written by',
 			data1: author,
@@ -63,11 +59,11 @@
 		if (title && slug) {
 			metaData = {
 				title: `${title} | Sveltekit`,
-				url: `/blog/${slug}`,
+				url: `/snippets/${slug}`,
 				keywords: ['sveltekit blog', 'sveltekit starter', 'svelte starter', 'svelte', ...tags],
-				searchUrl: `/blog/${slug}`,
+				searchUrl: `/snippets/${slug}`,
 				description: `${description}`,
-				image: `/images/blogs/${slug}/banner.jpg`,
+				image: `/images/snippets/${slug}/banner.jpg`,
 				twitter: {
 					label1: 'Written by',
 					data1: author,
@@ -93,9 +89,19 @@
 <!-- End: Header Tag -->
 
 <article class="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
-	<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-		{title}
-	</h1>
+	<div class="flex justify-between w-full mb-8">
+		<div>
+			<h1 class="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+				{title}
+			</h1>
+			<p class="text-gray-700 dark:text-gray-300">
+				{description}
+			</p>
+		</div>
+		<div class="mt-2 sm:mt-0">
+			<img alt="{title}" height="{48}" width="{48}" src="{`/logos/${logo}`}" class="drop-shadow rounded-full" />
+		</div>
+	</div>
 	<div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
 		<div class="flex items-center">
 			<img
@@ -117,11 +123,8 @@
 		<slot />
 	</div>
 	<div class="mt-8">
-		<TagsContainer tags="{tags}" />
-	</div>
-	<div class="mt-8">
-		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the article on'}</p>
-		<ShareButtons title="{title}" description="{description}" url="{`${environment.launchURL}/blog/${slug}`}" />
+		<p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{'Share the code snippet on'}</p>
+		<ShareButtons title="{title}" description="{description}" url="{`${environment.launchURL}/snippets/${slug}`}" />
 	</div>
 	<div class="text-sm text-gray-700 dark:text-gray-300 mt-8">
 		<ExternalLink
@@ -140,9 +143,4 @@
 			{'Edit on GitHub'}
 		</ExternalLink>
 	</div>
-	{#if previousArticleLink || nextArticleLink}
-		<div class="mt-8 w-full">
-			<NextArticle previousHref="{previousArticleLink}" nextHref="{nextArticleLink}" />
-		</div>
-	{/if}
 </article>

@@ -15,7 +15,6 @@
 	// Start: Local Imports
 
 	// Start: External Imports
-	import '../styles/tailwind.postcss';
 
 	// End: External Imports
 
@@ -30,7 +29,7 @@
 
 	// Models
 	import type { IHeaderNavLink } from '$models/interfaces/iheader-nav-link.interface';
-	import type { ICompiledCSS } from '$lib/models/interfaces/icompiled-css.interface';
+	import type { ICompiledCSS } from '$models/interfaces/icompiled-css.interface';
 	// End: Local Imports
 
 	// Start: Local component properties

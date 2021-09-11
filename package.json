@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"author": {
 		"name": "Navneet Sharma",
-		"url": "https://github.com/navneetsharmaui",
+		"url": "https://navneetsharma.xyz",
 		"email": "navneetsharma.tech@gmail.com"
 	},
 	"license": "MIT",
@@ -112,7 +112,7 @@
 		"eslint:fix": "eslint ./src/**/*.{js,svelte,ts} --ignore-path .gitignore . --fix",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"banners": "node --loader ts-node/esm scripts/js/blog-banner.ts",
+		"banners": "node --loader ts-node/esm scripts/js/banner.ts",
 		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"

@@ -4,6 +4,7 @@ title: "First post"
 slug: "first-post"
 author: "Sveltekit Blogger"
 description: "Truly it was a great journey, and in it I met with many, whom to know was to love; but whom never could I see again; for life has not space enough; and each must do his duty to the security and well-being of the Redoubt."
+banner: "/images/blogs/first-post/banner.jpg"
 tags: ["Svelte Kit", "Tailwind", "Markdown"]
 date: "2021-09-06"
 published: true

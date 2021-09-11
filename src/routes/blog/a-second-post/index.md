@@ -5,7 +5,7 @@ slug: "a-second-post"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Sveltekit Blogger"
 date: "2021-09-08"
-banner: "/images/banner.jpg"
+banner: "/images/blogs/a-second-post/banner.jpg"
 published: true
 tags: ["Svelte", "JavaScript", "Typescript", "web development", "Programming"]
 ---

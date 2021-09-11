@@ -105,7 +105,7 @@ const generateTags = () => {
 	return tags
 		.map(
 			(uniqueCategory: string) => `
-      <url><loc>${BASE_URL}/bog/tags/${convertToSlug(uniqueCategory)}/</loc><priority>0.85</priority></url>
+      <url><loc>${BASE_URL}/tags/${convertToSlug(uniqueCategory)}/</loc><priority>0.85</priority></url>
         `,
 		)
 		.join('\n');

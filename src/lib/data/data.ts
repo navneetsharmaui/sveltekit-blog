@@ -1,4 +1,4 @@
-import { UserModel } from '$lib/models/classes';
+import { UserModel } from '$models/classes';
 
 export const userData: UserModel[] = [
 	{

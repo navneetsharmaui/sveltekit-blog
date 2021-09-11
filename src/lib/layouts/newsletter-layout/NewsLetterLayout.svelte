@@ -17,7 +17,6 @@
 	import TagsContainer from '$ui/components/tags-container/TagsContainer.svelte';
 
 	// Utils
-	import { convertToSlug } from '$utils/convert-to-slug';
 
 	// Exports
 
@@ -34,7 +33,7 @@
 
 	const editUrl = `${environment.gitHubConfig.GITHUB_BLOG_EDIT_URL}/${slug}.md`;
 	const discussUrl = `${environment.twitterConfig.TWITTER_SEARCH_URL}?q=${encodeURIComponent(
-		`https://navneetsharma.in/blog/${slug}`,
+		`https://sveltekit-blog-starter.vercel.app/blog/${slug}`,
 	)}`;
 
 	/**

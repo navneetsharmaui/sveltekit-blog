@@ -5,7 +5,7 @@ slug: "welcome-to-my-blog"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Sveltekit Blogger"
 date: "2021-09-01"
-banner: "/images/banner.jpg"
+banner: "/images/blogs/welcome-to-my-blog/banner.jpg"
 published: true
 tags: ["React", "JavaScript", "web development", "Programming"]
 ---

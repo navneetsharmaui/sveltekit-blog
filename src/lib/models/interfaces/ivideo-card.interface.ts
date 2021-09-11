@@ -1,8 +1,8 @@
-import type { ISnippet } from './isnippet.interface';
-import type { IStatistics } from './istatistics.interface';
+import type { IVideoSnippet } from './ivideo-snippet.interface';
+import type { IVideoStatistics } from './ivideo-statistics.interface';
 
 export interface IVideoCard {
 	id: number;
-	snippet: ISnippet;
-	statistics: IStatistics;
+	snippet: IVideoSnippet;
+	statistics: IVideoStatistics;
 }

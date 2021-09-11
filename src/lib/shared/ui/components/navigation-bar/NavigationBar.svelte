@@ -3,7 +3,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	// Models
-	import type { IHeaderNavLink } from '$lib/models/interfaces/iheader-nav-link.interface';
+	import type { IHeaderNavLink } from '$models/interfaces/iheader-nav-link.interface';
 
 	// Exports
 	/**
@@ -35,8 +35,8 @@
 		aria-label="Toggle Dark Mode"
 		type="button"
 		class="{useTitleAndLogo
-			? 'sticky-theme-mode-button w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800'
-			: 'w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800'}"
+			? 'sticky-theme-mode-button w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800 filter shadow hover:shadow-md dark:shadow-dark dark:hover:shadow-dark-lg'
+			: 'w-10 h-10 p-3 bg-gray-200 rounded-full dark:bg-gray-800 filter shadow hover:shadow-md dark:shadow-dark dark:hover:shadow-dark-lg'}"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

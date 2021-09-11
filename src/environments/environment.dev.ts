@@ -1,10 +1,7 @@
-import { EnvironmentName } from '$lib/models/enums/environment-name.enum';
-import { EnvironmentType } from '$lib/models/enums/environment-type.enum';
-import {
-	SVELTEKIT_DATA_ENPOINTS_DEV,
-	SVELTEKIT_SEARCH_ENPOINTS_DEV,
-} from '$lib/models/enums/sveltekit-endpoint.dev.enum';
-import type { SVELTEKIT_STARTER_ENPOINT_CONFIG } from '$lib/models/types/sveltekit-endpoits.type';
+import { EnvironmentName } from '$models/enums/environment-name.enum';
+import { EnvironmentType } from '$models/enums/environment-type.enum';
+import { SVELTEKIT_DATA_ENPOINTS_DEV, SVELTEKIT_SEARCH_ENPOINTS_DEV } from '$models/enums/sveltekit-endpoint.dev.enum';
+import type { SVELTEKIT_STARTER_ENPOINT_CONFIG } from '$models/types/sveltekit-endpoits.type';
 import type { ISveltekitStarterEnvironmentConfig } from '$models/interfaces/isveltekit-strater-environment.interface';
 
 export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_ENPOINT_CONFIG> = {
@@ -46,6 +43,7 @@ export const environment: ISveltekitStarterEnvironmentConfig<SVELTEKIT_STARTER_E
 	},
 	gitHubConfig: {
 		GITHUB_BLOG_EDIT_URL: import.meta.env.SVELTEKIT_BLOG_GITHUB_BLOG_EDIT_URL,
+		GITHUB_SNIPPETS_EDIT_URL: import.meta.env.SVELTEKIT_BLOG_GITHUB_SNIPPETS_EDIT_URL,
 		GITHUB_API_URL: import.meta.env.SVELTEKIT_BLOG_GITHUB_API_URL,
 		GITHUB_USER_ENDPOINT: import.meta.env.SVELTEKIT_BLOG_GITHUB_USER_ENDPOINT,
 		GITHUB_USER_REPO_ENDPOINT: import.meta.env.SVELTEKIT_BLOG_GITHUB_USER_REPO_ENDPOINT,

@@ -5,7 +5,7 @@ slug: "yet-another-blog-post"
 description: "Fusce ac lorem sit amet metus vestibulum dapibus ut at mauris. Etiam ut pulvinar nibh."
 author: "Sveltekit Blogger"
 date: "2021-09-11"
-banner: "/images/banner.jpg"
+banner: "/images/blogs/yet-another-blog-post/banner.jpg"
 published: true
 tags: ["Angular", "Typescript", "web development", "Programming", "React"]
 ---

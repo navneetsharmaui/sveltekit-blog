@@ -11,5 +11,4 @@ export interface IBlog {
 	description: string;
 	edit?: string;
 	modified?: string;
-	readingTime: string;
 }
