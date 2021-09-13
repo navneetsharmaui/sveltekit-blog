@@ -58,6 +58,7 @@
 		"dev:host": "npm run check-env && npm run add-css && npm run dev:sveltekit:host",
 		"dev:open": "npm run dev --open",
 		"dev:host:open": "npm run dev --open --host",
+		"build:gzip:static": "gzipper c --brotli ./build",
 		"build:env:prod": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=prod --project=sveltekit-blog --arhitect-type=build --configurations=prod",
 		"build:env:dev": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=dev --project=sveltekit-blog --arhitect-type=build --configurations=dev",
 		"build:env:qa": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=qa --project=sveltekit-blog --arhitect-type=build --configurations=qa",
@@ -115,7 +116,8 @@
 		"banners": "node --loader ts-node/esm scripts/js/banner.ts",
 		"optimize:image": "node --loader ts-node/esm scripts/js/optimize-image.ts",
 		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"build-storybook": "build-storybook",
+		"http:server:static": "http-server build -b"
 	},
 	"dependencies": {
 		"@fontsource/fira-mono": "^4.2.2",
@@ -170,6 +172,8 @@
 		"globby": "^12.0.2",
 		"googleapis": "^84.0.0",
 		"gray-matter": "^4.0.3",
+		"gzipper": "^5.0.0",
+		"http-server": "^13.0.1",
 		"husky": "^7.0.2",
 		"image-size": "^1.0.0",
 		"lint-staged": "^11.1.2",
