@@ -15,6 +15,7 @@
 	// Start: Local Imports
 
 	// Start: External Imports
+	import '../styles/tailwind.postcss';
 
 	// End: External Imports
 
@@ -73,8 +74,6 @@
 
 	// End: Local component methods
 </script>
-
-<CompiledStyles cssFiles="{stylesList}" />
 
 <div class="bg-white dark:bg-black">
 	<!-- Start: Header Navigation -->
