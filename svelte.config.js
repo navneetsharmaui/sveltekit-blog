@@ -59,10 +59,6 @@ const config = {
 	preprocess: [
 		preprocess({
 			postcss: true,
-			scss: {
-				prependData: `@import 'src/styles/variables/index.scss';`,
-				outputStyle: 'compressed',
-			},
 			preserve: ['ld+json'],
 		}),
 		mdsvex(mdsvexConfig),
