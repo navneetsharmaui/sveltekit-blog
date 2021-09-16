@@ -24,10 +24,6 @@ module.exports = {
 		preprocess: [
 			sveltePreprocess({
 				postcss: true,
-				scss: {
-					prependData: `@import 'src/styles/variables/index.scss';`,
-					outputStyle: 'compressed',
-				},
 				preserve: ['ld+json'],
 			}),
 		],
