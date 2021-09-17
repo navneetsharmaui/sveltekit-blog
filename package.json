@@ -115,12 +115,6 @@
 		"build-storybook": "build-storybook",
 		"http:server:static": "http-server build -b"
 	},
-	"dependencies": {
-		"@fontsource/fira-mono": "^4.2.2",
-		"@lukeed/uuid": "^2.0.0",
-		"cookie": "^0.4.1",
-		"micro-cookie-session": "^2.0.0-beta.1"
-	},
 	"devDependencies": {
 		"@babel/core": "^7.15.0",
 		"@fortawesome/fontawesome-free": "^5.15.4",
