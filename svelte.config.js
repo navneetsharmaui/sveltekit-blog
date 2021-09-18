@@ -4,7 +4,6 @@
 // command env properties
 const hasAdapter = process.env.ADAPTER;
 const adapt = hasAdapter ? hasAdapter : 'node';
-const isAMP = process.env.AMP ? true : false;
 
 // Imports
 import { mdsvex } from 'mdsvex';
@@ -68,7 +67,6 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#sveltekit-blog',
 		ssr: true,
-		amp: isAMP,
 		prerender: {
 			crawl: true,
 			enabled: true,
