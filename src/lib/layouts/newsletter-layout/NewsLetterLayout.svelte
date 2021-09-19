@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { parseISO, format } from 'date-fns';
 	import reading from 'reading-time';
 
 	import { onMount } from 'svelte';
@@ -17,6 +16,7 @@
 	import TagsContainer from '$ui/components/tags-container/TagsContainer.svelte';
 
 	// Utils
+	import { blogTypeDate } from '$utils/date-formatters';
 
 	// Exports
 
@@ -50,7 +50,7 @@
 			label1: 'Written by',
 			data1: author,
 			label2: 'Published on',
-			data2: format(parseISO(date), 'MMMM dd, yyyy'),
+			data2: blogTypeDate(date),
 		},
 		openGraph: {
 			type: 'article',
@@ -71,7 +71,7 @@
 					label1: 'Written by',
 					data1: author,
 					label2: 'Published on',
-					data2: format(parseISO(date), 'MMMM dd, yyyy'),
+					data2: blogTypeDate(date),
 				},
 				openGraph: {
 					type: 'article',
@@ -105,7 +105,7 @@
 			<p class="text-sm text-gray-700 dark:text-gray-300 ml-2">
 				{author}
 				{' / '}
-				{format(parseISO(date), 'MMMM dd, yyyy')}
+				{blogTypeDate(date)}
 			</p>
 		</div>
 		<p class="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
