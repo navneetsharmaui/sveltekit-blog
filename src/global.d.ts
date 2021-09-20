@@ -62,7 +62,6 @@ declare module '*.wbep' {
 }
 
 declare module 'svelte-awesome';
-declare module 'gatsby-remark-prismjs/highlight-code.js';
 
 // Start: Interfaces
 
