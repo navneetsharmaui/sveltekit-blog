@@ -17,10 +17,8 @@
 
 	// Utils
 	import { blogTypeDate } from '$utils/date-formatters';
-	import { convertToSlug } from '$utils/convert-to-slug';
 
 	// Exports
-
 	export let title = '';
 	export let slug = '';
 	export let description = '';
