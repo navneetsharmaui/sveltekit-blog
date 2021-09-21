@@ -21,10 +21,8 @@
 	// Start: Local Imports
 
 	// Core services
-	import { environment } from '$environment/environment';
 
 	// Utils
-	import { Logger, LoggerUtils } from '$lib/utils/logger/logger';
 
 	// Components
 	import HeadTags from '$components/head-tags/HeadTags.svelte';
