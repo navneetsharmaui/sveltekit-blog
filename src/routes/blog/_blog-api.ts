@@ -7,7 +7,7 @@ import marked from 'marked';
 import Prism from 'prismjs';
 import 'prism-svelte';
 import loadLanguages from 'prismjs/components/index.js';
-import readingTime from 'reading-time';
+import { readingTime } from '$lib/utils/reading-time';
 
 loadLanguages(['shell', 'markdown', 'json']);
 
@@ -54,7 +54,7 @@ const posts = fs
 		};
 		const html = marked(postFrontMatter.body, { renderer });
 
-		const readingTimeDuration = readingTime(postFrontMatter.body).text;
+		const readingTimeDuration = readingTime(postFrontMatter.body).time;
 
 		return {
 			metadata: {
