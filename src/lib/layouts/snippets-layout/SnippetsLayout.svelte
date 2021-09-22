@@ -1,6 +1,4 @@
 <script lang="ts">
-	import reading from 'reading-time';
-
 	import { onMount } from 'svelte';
 
 	// Environment
@@ -15,6 +13,7 @@
 
 	// Utils
 	import { blogTypeDate } from '$utils/date-formatters';
+	import { readingTime } from '$lib/utils/reading-time';
 
 	// Exports
 
@@ -80,7 +79,7 @@
 
 	// Local Methods
 	onMount(() => {
-		readingTimeDuration = reading(`${document.getElementById('blog-conent').textContent}`).text;
+		readingTimeDuration = readingTime(`${document.getElementById('blog-conent').textContent}`).time;
 	});
 </script>
 
