@@ -143,7 +143,6 @@
 		"gray-matter": "^4.0.3",
 		"gzipper": "^5.0.0",
 		"husky": "^7.0.2",
-		"image-size": "^1.0.0",
 		"lint-staged": "^11.1.2",
 		"marked": "^3.0.2",
 		"mdsvex": "^0.9.8",
