@@ -9,8 +9,6 @@ const adapt = hasAdapter ? hasAdapter : 'node';
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 
-import { imagetools } from 'vite-imagetools';
-
 import preprocess from 'svelte-preprocess';
 import { resolve } from 'path';
 import { dirname } from 'path';
@@ -88,7 +86,6 @@ const config = {
 					$environment: resolve(__dirname, './src/environments'),
 				},
 			},
-			plugins: [imagetools({ force: true })],
 			envPrefix: ['VITE_', 'SVELTEKIT_BLOG_'],
 		}),
 	},
