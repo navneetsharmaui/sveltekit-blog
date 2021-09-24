@@ -26,16 +26,14 @@
 	import Footer from '$ui/components/footer/Footer.svelte';
 	import RouteTransition from '$ui/components/route-transition/RouteTransition.svelte';
 	import NowPlaying from '$components/now-playing/NowPlaying.svelte';
-	import CompiledStyles from '$components/compiled-styles/CompiledStyles.svelte';
 
 	// Models
 	import type { IHeaderNavLink } from '$models/interfaces/iheader-nav-link.interface';
-	import type { ICompiledCSS } from '$models/interfaces/icompiled-css.interface';
 	// End: Local Imports
 
 	// Start: Local component properties
-	export let path = '';
 
+	export let path = '';
 	/**
 	 * @type {IHeaderNavLink}
 	 */
@@ -58,11 +56,6 @@
 		},
 	];
 
-	const stylesList: ICompiledCSS[] = [
-		{
-			url: '/tailwind.css',
-		},
-	];
 	// End: Local component properties
 
 	// Start: Local component methods
@@ -75,7 +68,7 @@
 	// End: Local component methods
 </script>
 
-<div class="bg-white dark:bg-black">
+<div class=" dark:bg-black bg-yellow-50">
 	<!-- Start: Header Navigation -->
 	<Header
 		on:toggleTheme="{(e) => toggleThemeMode(e)}"
@@ -86,7 +79,7 @@
 		useTitleAndLogo="{true}"
 	/>
 	<!-- End: Header Navigation -->
-	<main id="skip" class="flex flex-col justify-center px-8 bg-white dark:bg-black">
+	<main id="skip" class="flex flex-col justify-center px-8 bg-yellow-50 dark:bg-black pt-4">
 		<!-- Start: Defaull layout slot -->
 		<RouteTransition referesh="{path}">
 			<slot />
