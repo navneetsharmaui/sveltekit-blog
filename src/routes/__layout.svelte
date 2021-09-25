@@ -86,9 +86,7 @@
 		</RouteTransition>
 		<!-- End: Defaull layout slot -->
 		<!-- Start: Footer -->
-		<Footer>
-			<NowPlaying />
-		</Footer>
+		<Footer />
 		<!-- End: Footer -->
 	</main>
 </div>

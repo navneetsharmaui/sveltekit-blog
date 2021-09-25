@@ -10,7 +10,7 @@
 	// End: Local Imports
 
 	// Start: Exported Properties
-	export let logoImage = '';
+	export let logoImage!: string;
 	export let title = '';
 	export let useTitleAndLogo!: boolean;
 	export let useThemeModeButton!: boolean;
