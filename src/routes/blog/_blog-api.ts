@@ -12,7 +12,7 @@ import { readingTime } from '$lib/utils/reading-time';
 loadLanguages(['shell', 'markdown', 'json']);
 
 const blogPath = './contents/blogs';
-const createAnchorAndFragment = (text) => {
+const createAnchorAndFragment = (text: string) => {
 	const anchorRegExp = /{([^}]+)}/g;
 	const anchorOverwrite = anchorRegExp.exec(text);
 	const fragment = anchorOverwrite
