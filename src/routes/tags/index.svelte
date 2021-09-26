@@ -2,7 +2,7 @@
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ fetch }) {
+	export async function load({ fetch }: LoadInput) {
 		return {
 			props: {
 				blogs: await fetch('/blog.json').then((res) => res.json()),
@@ -13,12 +13,12 @@
 
 <script lang="ts">
 	// Start: Local Imports
+	import type { LoadInput } from '@sveltejs/kit';
 	// Components
 	import HeadTags from '$components/head-tags/HeadTags.svelte';
 
 	// Models
 	import type { IBlog } from '$models/interfaces/iblog.interface';
-	import type { IMetaTagProperties } from '$models/interfaces/imeta-tag-properties.interface';
 
 	import { convertToSlug } from '$utils/convert-to-slug';
 	// End: Local Imports

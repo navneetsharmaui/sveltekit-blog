@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import type { ISnippet } from '$lib/models/interfaces/isnippet.interface';
 import { slugFromPath } from '$utils/slug-from-path';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export async function get({
+	query,
+}: {
+	query: URLSearchParams;
+}): Promise<Partial<{ body: ISnippet[]; status: number }>> {
 	const modules = import.meta.glob('./**/index.{md,svx,svelte.md}');
 
 	const snipptePromises = [];

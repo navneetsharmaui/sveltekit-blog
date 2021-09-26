@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import type { IBlog } from '$lib/models/interfaces/iblog.interface';
 import { slugFromPath } from '$utils/slug-from-path';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export async function get({ query }: { query: URLSearchParams }): Promise<Partial<{ body: IBlog[]; status: number }>> {
 	const modules = import.meta.glob('./**/index.{md,svx,svelte.md}');
 
 	const postPromises = [];
@@ -39,5 +40,6 @@ export async function get({ query }) {
 
 	return {
 		body: publishedPosts.slice(0, sliceParam),
+		status: 200,
 	};
 }
