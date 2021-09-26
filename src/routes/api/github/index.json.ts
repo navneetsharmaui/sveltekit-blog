@@ -9,7 +9,32 @@ const GITHUB_USER_REPO_ENDPOINT = environment.gitHubConfig.GITHUB_USER_REPO_ENDP
 	: 'https://api.github.com/users/navneetsharmaui/repos?per_page=100';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export async function get({
+	query,
+}: {
+	query: URLSearchParams;
+}): Promise<
+	| {
+			status: number;
+			headers?: {
+				[key: string]: string;
+			};
+			body?: {
+				followers: unknown;
+				stars: unknown;
+			};
+	  }
+	| {
+			status: number;
+			headers?: {
+				[key: string]: string;
+			};
+			body: {
+				followers: unknown;
+				stars: unknown;
+			};
+	  }
+> {
 	const limit = Number(query.get('limit') ?? 10);
 
 	if (Number.isNaN(limit)) {
@@ -24,8 +49,11 @@ export async function get({ query }) {
 	const user = await githubUser.json();
 	const allRespos = await githubUserRepos.json();
 
-	const reposWithoutFork = allRespos.filter((repo) => !repo.fork);
-	const stars = reposWithoutFork.reduce((accumulator, repo) => accumulator + repo['stargazers_count'], 0);
+	const reposWithoutFork = allRespos.filter((repo: { fork: unknown }) => !repo.fork);
+	const stars = reposWithoutFork.reduce(
+		(accumulator: unknown, repo: { [x: string]: unknown }) => `${accumulator} ${repo['stargazers_count']}`,
+		0,
+	);
 	return {
 		status: 200,
 		headers: {
