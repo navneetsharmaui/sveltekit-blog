@@ -1,7 +1,14 @@
+import type { INowPlayingTrack } from '$models/interfaces/inow-playing-track.interface';
 import { getNowPlaying } from '$utils/spotify';
 
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+/** @type {import('@sveltejs/kit').Page} */
+export async function get(): Promise<{
+	status: number;
+	body: INowPlayingTrack;
+	headers?: {
+		[key: string]: string;
+	};
+}> {
 	const response = await getNowPlaying();
 
 	if (response.status === 204 || response.status > 400) {
