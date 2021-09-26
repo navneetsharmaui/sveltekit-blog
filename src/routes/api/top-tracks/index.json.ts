@@ -1,7 +1,27 @@
-import { getTopTracks } from '$lib/utils/spotify';
+import type { ITopTrack } from '$models/interfaces/itop-track.interface';
+import { getTopTracks } from '$utils/spotify';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get({ query }) {
+export async function get({
+	query,
+}: {
+	query: URLSearchParams;
+}): Promise<
+	| {
+			status: number;
+			headers?: {
+				[key: string]: string;
+			};
+			body?: string;
+	  }
+	| {
+			status: number;
+			headers: {
+				[key: string]: string;
+			};
+			body: ITopTrack[];
+	  }
+> {
 	const limit = Number(query.get('limit') ?? 10);
 
 	if (Number.isNaN(limit)) {
