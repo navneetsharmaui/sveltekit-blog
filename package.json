@@ -62,7 +62,7 @@
 		"build:env:local": "node --loader ts-node/esm scripts/js/environment.setup.ts --mode=local --project=sveltekit-blog --arhitect-type=build --configurations=local",
 		"build:postcss:taildwindcss": "cross-env TAILWIND_MODE=build NODE_ENV=production STYLE_TYPE=TAILWIND postcss src/styles/tailwind.postcss -o static/tailwind.css",
 		"build:sveltekit": "cross-env-shell svelte-kit build",
-		"build": "run-s build:env:prod build:postcss:taildwindcss build:sveltekit build:env:local",
+		"build": "run-s build:env:prod build:postcss:taildwindcss build:sveltekit build:gzip:static build:env:local",
 		"build:verbose:sveltekit": "cross-env-shell svelte-kit build --verbose",
 		"build:verbose": "run-s build:postcss:taildwindcss build:verbose:sveltekit",
 		"build:static": "cross-env ADAPTER=static OPTIONS='{}' npm run build",
