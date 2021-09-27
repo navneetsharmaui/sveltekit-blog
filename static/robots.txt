@@ -1,5 +1,2 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-
-Sitemap: https://sveltekit-blog-starter.vercel.app/sitemap.xml
-RSS: https://sveltekit-blog-starter.vercel.app/rss.xml
+user-agent: *
+sitemap: https://sveltekit-blog-starter.vercel.app/sitemap.xml
