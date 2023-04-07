@@ -118,7 +118,7 @@
 		"@sveltejs/adapter-node": "^1.0.0-next.43",
 		"@sveltejs/adapter-static": "^1.0.0-next.18",
 		"@sveltejs/adapter-vercel": "^1.0.0-next.28",
-		"@sveltejs/kit": "^1.0.0-next.165",
+		"@sveltejs/kit": "^1.15.2",
 		"@tailwindcss/typography": "^0.4.1",
 		"@types/marked": "^3.0.0",
 		"@types/node": "^16.7.2",
