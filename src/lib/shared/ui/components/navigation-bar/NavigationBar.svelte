@@ -77,7 +77,7 @@
 			type="button"
 			class="{useTitleAndLogo
 				? 'sticky-theme-mode-button w-8 h-8 bg-yellow-50 rounded-full dark:bg-gray-800 filter shadow hover:shadow-md dark:shadow-dark dark:hover:shadow-dark-lg hover:border-2 hover:border-gray-500 dark:hover:border-gray-300 z-10'
-				: 'w-8 h-8 bg-yellow-50 rounded-full dark:bg-gray-800 filter shadow hover:shadow-md dark:shadow-dark dark:hover:shadow-dark-lg hover:border-2 hover:border-gray-500 dark:hover:border-gray-300 z-10'}"
+				: 'w-8 h-8 bg-yellow-50 rounded-full dark:bg-gray-800 filter shadow hover:shadow-md dark:shadow-dark dark:hover:shadow-dark-lg hover:border-2 hover:border-gray-500 dark:hover:border-gray-300 z-10 flex justify-center items-center'}"
 		>
 			{#if dark}
 				<Icon data="{faSun}" class="{'h-3 w-3 text-xs text-gray-700 dark:text-gray-100'}" scale="{1.5}" />
